@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Royal Supply Inc. — Woman-Owned Janitorial Supplies, Elk River MN</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
+:root{--royal:#1a2d5a;--royal-deep:#0f1d3d;--royal-mid:#243970;--gold:#d4a843;--gold-light:#f0d080;--white:#ffffff;--off:#f5f7fb;--slate:#4a5568;--border:rgba(26,45,90,.1);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--royal-deep);overflow-x:hidden;cursor:none;}
+.cur{width:10px;height:10px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;}
+.cur-ring{width:38px;height:38px;border:1.5px solid var(--royal);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:20px 64px;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--border);transition:all .4s;}
+nav.scrolled{background:rgba(255,255,255,.95);backdrop-filter:blur(24px);box-shadow:0 1px 0 var(--border);padding:16px 64px;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-logo-icon{width:40px;height:40px;background:var(--royal);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.nav-logo-icon svg{width:22px;height:22px;fill:var(--gold);}
+.nav-logo-text{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--royal-deep);letter-spacing:.02em;}
+.nav-links{display:flex;gap:40px;list-style:none;}
+.nav-links a{font-size:.8rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--royal-deep);text-decoration:none;transition:color .3s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-dropdown{position:relative;}
+.dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:8px 0;min-width:180px;box-shadow:0 8px 32px rgba(26,45,90,.12);list-style:none;z-index:300;}
+.dropdown-menu li a{display:block;padding:10px 20px;font-size:.78rem;letter-spacing:.06em;color:var(--royal-deep);text-transform:none;font-weight:400;transition:background .2s,color .2s;}
+.dropdown-menu li a:hover{background:var(--off);color:var(--gold);}
+.nav-dropdown:hover .dropdown-menu{display:block;}
+.nav-cta{padding:11px 28px;background:var(--royal);color:var(--white);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:all .3s;}
+.nav-cta:hover{background:var(--gold);color:var(--royal-deep);}
+
+/* PAGE HERO */
+.page-hero{padding:160px 64px 80px;background:var(--royal-deep);position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(212,168,67,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(212,168,67,.06) 1px,transparent 1px);background-size:60px 60px;animation:gridShift 20s linear infinite;}
+@keyframes gridShift{from{background-position:0 0}to{background-position:60px 60px}}
+.page-hero-inner{position:relative;z-index:2;max-width:700px;}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:.68rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:24px;}
+.breadcrumb a{color:var(--gold);text-decoration:none;}
+.breadcrumb-sep{opacity:.4;}
+.page-h1{font-family:'DM Serif Display',serif;font-size:clamp(2.8rem,5vw,5rem);font-weight:400;line-height:1.06;color:var(--white);margin-bottom:24px;}
+.page-h1 span{color:var(--gold);font-style:italic;}
+.page-sub{font-size:1rem;line-height:1.8;color:rgba(255,255,255,.6);max-width:560px;}
+
+/* SECTIONS */
+.sec{padding:96px 64px;}
+.sec-label{font-size:.65rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.sec-label::before{content:'';width:24px;height:2px;background:var(--gold);}
+.sec-h2{font-family:'DM Serif Display',serif;font-size:clamp(2rem,3.2vw,3.2rem);line-height:1.12;margin-bottom:24px;}
+.sec-body{font-size:.95rem;line-height:1.88;color:var(--slate);max-width:620px;}
+
+/* MISSION SPLIT */
+.mission{display:grid;grid-template-columns:1fr 1fr;background:var(--off);}
+.mission-left{padding:96px 80px 96px 64px;display:flex;flex-direction:column;justify-content:center;}
+.mission-right{background:var(--royal);padding:96px 64px 96px 80px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
+.mission-right::before{content:'"';position:absolute;top:-80px;left:20px;font-family:'DM Serif Display',serif;font-size:30rem;font-weight:400;color:rgba(212,168,67,.06);line-height:1;user-select:none;}
+.mission-quote{font-family:'DM Serif Display',serif;font-size:1.65rem;font-weight:400;font-style:italic;line-height:1.5;color:var(--white);position:relative;z-index:1;margin-bottom:24px;}
+.mission-attr{font-size:.68rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);}
+
+/* VALUES */
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);margin-top:64px;}
+.value-card{background:var(--white);padding:48px 40px;border-bottom:3px solid transparent;transition:all .4s;}
+.value-card:hover{background:var(--off);border-bottom-color:var(--gold);}
+.value-icon{font-size:2.4rem;display:block;margin-bottom:20px;}
+.value-title{font-family:'DM Serif Display',serif;font-size:1.4rem;margin-bottom:12px;}
+.value-desc{font-size:.85rem;line-height:1.8;color:var(--slate);}
+
+/* TEAM */
+.team-section{background:var(--royal-deep);padding:96px 64px;}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:64px;background:rgba(255,255,255,.06);}
+.team-card{background:var(--royal-deep);padding:56px 52px;position:relative;overflow:hidden;transition:background .4s;}
+.team-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.16,1,.3,1);}
+.team-card:hover{background:#182550;}
+.team-card:hover::after{transform:scaleX(1);}
+.team-avatar{width:80px;height:80px;border-radius:50%;background:rgba(212,168,67,.15);border:2px solid rgba(212,168,67,.3);display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:2rem;color:var(--gold);margin-bottom:28px;}
+.team-name{font-family:'DM Serif Display',serif;font-size:1.7rem;color:var(--white);margin-bottom:6px;}
+.team-role{font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.team-bio{font-size:.88rem;line-height:1.85;color:rgba(255,255,255,.5);margin-bottom:20px;}
+.team-personal{font-size:.82rem;line-height:1.75;color:rgba(255,255,255,.3);font-style:italic;}
+
+/* STATS STRIP */
+.stats-strip{background:var(--gold);padding:60px 64px;display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--gold);}
+.stat-item{text-align:center;padding:20px;}
+.stat-num{font-family:'DM Serif Display',serif;font-size:3rem;font-weight:400;color:var(--royal-deep);line-height:1;display:block;}
+.stat-label{font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(15,29,61,.6);margin-top:8px;}
+
+/* COMMUNITY */
+.community{padding:96px 64px;background:var(--off);}
+.community-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-top:64px;}
+.community-card{background:var(--white);padding:40px;border:1px solid var(--border);border-radius:12px;transition:all .4s;}
+.community-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(26,45,90,.08);border-color:rgba(212,168,67,.4);}
+.community-icon{font-size:2rem;display:block;margin-bottom:16px;}
+.community-title{font-size:1rem;font-weight:600;margin-bottom:8px;}
+.community-desc{font-size:.85rem;line-height:1.8;color:var(--slate);}
+
+/* CTA */
+.cta-band{background:var(--royal);padding:80px 64px;display:flex;align-items:center;justify-content:space-between;gap:40px;}
+.cta-band-text{font-family:'DM Serif Display',serif;font-size:2.2rem;font-weight:400;color:var(--white);max-width:500px;line-height:1.2;}
+.btn-gold{display:inline-flex;align-items:center;gap:12px;padding:18px 40px;background:var(--gold);color:var(--royal-deep);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:all .4s;position:relative;overflow:hidden;flex-shrink:0;}
+.btn-gold::before{content:'';position:absolute;inset:0;background:var(--gold-light);transform:translateX(-101%);transition:transform .45s cubic-bezier(.16,1,.3,1);}
+.btn-gold:hover::before{transform:none;}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(212,168,67,.3);}
+.btn-gold span{position:relative;z-index:1;}
+
+/* FOOTER */
+footer{background:var(--royal-deep);padding:40px 64px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.06);}
+.footer-logo{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--white);}
+.footer-logo span{color:var(--gold);}
+.footer-links{display:flex;gap:28px;list-style:none;}
+.footer-links a{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;transition:color .3s;}
+.footer-links a:hover{color:var(--gold);}
+.footer-copy{font-size:.65rem;color:rgba(255,255,255,.2);}
+
+.rv{opacity:0;transform:translateY(32px);transition:opacity .9s ease,transform .9s cubic-bezier(.16,1,.3,1);}
+.rv.in{opacity:1;transform:none;}
+.rv-d1{transition-delay:.12s;}.rv-d2{transition-delay:.24s;}.rv-d3{transition-delay:.36s;}
+
+@media(max-width:900px){
+  nav{padding:20px 24px;}nav.scrolled{padding:14px 24px;}
+  .page-hero,.sec,.community,.cta-band,.stats-strip,.team-section{padding:72px 24px;}
+  .mission{grid-template-columns:1fr;}
+  .mission-left,.mission-right{padding:72px 24px;}
+  .values-grid,.team-grid,.community-grid{grid-template-columns:1fr;}
+  .stats-strip{grid-template-columns:1fr 1fr;}
+  .cta-band{flex-direction:column;text-align:center;}
+  footer{flex-direction:column;gap:16px;text-align:center;}
+}
+</style>
+</head>
+<body>
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="curRing"></div>
+
+<nav id="nav">
+  <a href="royal_supply_redesign.html" class="nav-logo">
+    <div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2L3 7l9 5 9-5-9-5zM3 17l9 5 9-5M3 12l9 5 9-5"/></svg></div>
+    <span class="nav-logo-text">Royal Supply</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="royal_supply_about.html" class="active">About</a></li>
+    <li class="nav-dropdown"><a href="royal_supply_products.html">Products ▾</a>
+      <ul class="dropdown-menu">
+        <li><a href="royal_supply_products.html">All Products</a></li>
+        <li><a href="royal_supply_equipment_repair.html">Equipment Repair</a></li>
+        <li><a href="royal_supply_sds.html">SDS Sheets</a></li>
+      </ul>
+    </li>
+    <li><a href="royal_supply_suppliers.html">Suppliers</a></li>
+    <li><a href="royal_supply_blog.html">Blog</a></li>
+    <li><a href="royal_supply_contact.html">Contact</a></li>
+  </ul>
+  <a href="royal_supply_contact.html" class="nav-cta">Get a Quote</a>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="royal_supply_redesign.html">Home</a><span class="breadcrumb-sep">→</span>About</div>
+    <h1 class="page-h1">Minnesota-proud.<br><span>Woman-owned.</span><br>Community-driven.</h1>
+    <p class="page-sub">Royal Supply has been serving Minnesota businesses with quality janitorial and facility supplies for decades — built on integrity, expertise, and lasting relationships.</p>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission">
+  <div class="mission-left">
+    <div class="rv">
+      <span class="sec-label">Our Mission</span>
+      <h2 class="sec-h2">More than supplies —<br>a partnership</h2>
+      <p class="sec-body">Royal Supply was founded on a simple belief: that businesses of every size deserve access to quality cleaning products, honest pricing, and a supplier who genuinely cares about their success. No contracts. No gimmicks. Just real service.</p>
+      <p class="sec-body" style="margin-top:20px;">As a woman-owned business in Elk River, Minnesota, we're proud to be part of this community and committed to supporting the local businesses that make it thrive.</p>
+    </div>
+  </div>
+  <div class="mission-right">
+    <div class="rv">
+      <blockquote class="mission-quote">"To provide quality cleaning products and equipment with excellent service and integrity while building lifelong relationships."</blockquote>
+      <div class="mission-attr">— Royal Supply Mission Statement</div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="sec" style="background:var(--white);">
+  <div class="rv"><span class="sec-label">Our Values</span><h2 class="sec-h2">What we stand for</h2></div>
+  <div class="values-grid">
+    <div class="value-card rv"><span class="value-icon">🤝</span><div class="value-title">No Contracts</div><p class="value-desc">We believe you should choose Royal Supply because we earn your business every single order — not because you're locked in.</p></div>
+    <div class="value-card rv rv-d1"><span class="value-icon">🔍</span><div class="value-title">Expertise First</div><p class="value-desc">With decades of industry knowledge, we help you find exactly the right products for your facility's specific needs.</p></div>
+    <div class="value-card rv rv-d2"><span class="value-icon">💰</span><div class="value-title">Cost Reduction</div><p class="value-desc">We analyze your current usage and identify where you're overpaying — then recommend smarter solutions that save money.</p></div>
+    <div class="value-card rv"><span class="value-icon">🚚</span><div class="value-title">Free Delivery</div><p class="value-desc">Orders over $150 ship free anywhere in Minnesota. No hidden fees, no delivery charges — what you see is what you pay.</p></div>
+    <div class="value-card rv rv-d1"><span class="value-icon">🏆</span><div class="value-title">Quality Guaranteed</div><p class="value-desc">Every product we stock is vetted through our supplier partnerships. If it doesn't meet our standards, it doesn't reach you.</p></div>
+    <div class="value-card rv rv-d2"><span class="value-icon">🌱</span><div class="value-title">Going Green</div><p class="value-desc">We actively stock eco-friendly, sustainable cleaning products and help businesses transition to greener facility management.</p></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-item"><span class="stat-num">6,000+</span><div class="stat-label">Products in stock</div></div>
+  <div class="stat-item"><span class="stat-num">50+</span><div class="stat-label">Supplier partners</div></div>
+  <div class="stat-item"><span class="stat-num">$150</span><div class="stat-label">Free delivery threshold</div></div>
+  <div class="stat-item"><span class="stat-num">0</span><div class="stat-label">Contracts required</div></div>
+</div>
+
+<!-- TEAM -->
+<section class="team-section">
+  <div class="rv"><span class="sec-label" style="color:var(--gold)">Our Team</span><h2 class="sec-h2" style="color:var(--white)">The people<br>behind Royal Supply</h2></div>
+  <div class="team-grid">
+    <div class="team-card rv rv-d1">
+      <div class="team-avatar">M</div>
+      <div class="team-name">Missy Wilson</div>
+      <div class="team-role">Owner & Sales Manager</div>
+      <p class="team-bio">With 18+ years in various leadership roles, Missy brings deep analytical thinking and problem-solving expertise to every client relationship. She personally oversees product selection, ensuring every recommendation delivers genuine value.</p>
+      <p class="team-personal">Active in the community through the Elk River Fire Foundation, running events, and boating.</p>
+    </div>
+    <div class="team-card rv rv-d2">
+      <div class="team-avatar">A</div>
+      <div class="team-name">Annette Ecklund</div>
+      <div class="team-role">Accounting & Customer Service</div>
+      <p class="team-bio">An experienced Minnesota business leader who keeps Royal Supply's administrative costs lean — so that savings flow directly to our customers. Annette values strong communication and reliable follow-through on every single order.</p>
+      <p class="team-personal">Enjoys volunteering in the community and spending time outdoors with family.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section class="community">
+  <div class="rv"><span class="sec-label">Community & Clients</span><h2 class="sec-h2">Proud to serve<br>Minnesota</h2><p class="sec-body">From hospitals to houses of worship, Royal Supply keeps Minnesota's facilities clean, safe, and well-stocked.</p></div>
+  <div class="community-grid">
+    <div class="community-card rv"><span class="community-icon">🏥</span><div class="community-title">Hospitals & Healthcare</div><p class="community-desc">Medical-grade cleaning standards, EPA-registered disinfectants, and reliable supply chains for healthcare environments.</p></div>
+    <div class="community-card rv rv-d1"><span class="community-icon">🎓</span><div class="community-title">Schools & Universities</div><p class="community-desc">Safe, effective, and cost-efficient janitorial supplies for educational facilities of every size.</p></div>
+    <div class="community-card rv rv-d2"><span class="community-icon">⛪</span><div class="community-title">Churches & Houses of Worship</div><p class="community-desc">Respectful service for faith communities — we understand the importance of clean, welcoming spaces.</p></div>
+    <div class="community-card rv rv-d3"><span class="community-icon">🏢</span><div class="community-title">Commercial Service Providers</div><p class="community-desc">Bulk pricing and reliable delivery for commercial cleaning companies serving multiple sites.</p></div>
+    <div class="community-card rv"><span class="community-icon">🎖️</span><div class="community-title">Veterans Organizations</div><p class="community-desc">Proud to serve American Legions, VFWs, and veteran community spaces across Minnesota.</p></div>
+    <div class="community-card rv rv-d1"><span class="community-icon">🏠</span><div class="community-title">Residential & Commercial</div><p class="community-desc">From small residential service providers to large commercial operations — we scale to fit every need.</p></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div class="cta-band-text">Ready to partner with a supplier who puts your business first?</div>
+  <a href="royal_supply_contact.html" class="btn-gold"><span>Request a Free Quote</span><span>→</span></a>
+</div>
+
+<footer>
+  <div class="footer-logo"><span>Royal</span> Supply Inc.</div>
+  <ul class="footer-links">
+    <li><a href="royal_supply_about.html">About</a></li>
+    <li><a href="royal_supply_products.html">Products</a></li>
+    <li><a href="royal_supply_suppliers.html">Suppliers</a></li>
+    <li><a href="royal_supply_blog.html">Blog</a></li>
+    <li><a href="royal_supply_contact.html">Contact</a></li>
+  </ul>
+  <span class="footer-copy">© 2026 Royal Supply Inc. — Elk River, Minnesota</span>
+</footer>
+
+<script>
+const cur=document.getElementById('cur'),ring=document.getElementById('curRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=(mx-5)+'px';cur.style.top=(my-5)+'px';});
+(function a(){rx+=(mx-rx-19)*.1;ry+=(my-ry-19)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a)})();
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>60));
+document.querySelectorAll('.rv').forEach(el=>new IntersectionObserver(([e])=>{if(e.isIntersecting)el.classList.add('in')},{threshold:.1}).observe(el));
+</script>
+</body>
+</html>

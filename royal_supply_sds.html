@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SDS Sheets | Royal Supply Inc.</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
+:root{--royal:#1a2d5a;--royal-deep:#0f1d3d;--gold:#d4a843;--gold-light:#f0d080;--white:#ffffff;--off:#f5f7fb;--slate:#4a5568;--border:rgba(26,45,90,.1);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--royal-deep);overflow-x:hidden;cursor:none;}
+.cur{width:10px;height:10px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;}
+.cur-ring{width:38px;height:38px;border:1.5px solid var(--royal);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:20px 64px;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--border);transition:all .4s;}
+nav.scrolled{background:rgba(255,255,255,.95);backdrop-filter:blur(24px);box-shadow:0 1px 0 var(--border);padding:16px 64px;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}.nav-logo-icon{width:40px;height:40px;background:var(--royal);border-radius:8px;display:flex;align-items:center;justify-content:center;}.nav-logo-icon svg{width:22px;height:22px;fill:var(--gold);}.nav-logo-text{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--royal-deep);}
+.nav-links{display:flex;gap:40px;list-style:none;}.nav-links a{font-size:.8rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--royal-deep);text-decoration:none;transition:color .3s;}.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-dropdown{position:relative;}.dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:8px 0;min-width:180px;box-shadow:0 8px 32px rgba(26,45,90,.12);list-style:none;z-index:300;}.dropdown-menu li a{display:block;padding:10px 20px;font-size:.78rem;letter-spacing:.06em;color:var(--royal-deep);text-transform:none;font-weight:400;transition:background .2s,color .2s;}.dropdown-menu li a:hover{background:var(--off);color:var(--gold);}.nav-dropdown:hover .dropdown-menu{display:block;}
+.nav-cta{padding:11px 28px;background:var(--royal);color:var(--white);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:all .3s;}.nav-cta:hover{background:var(--gold);color:var(--royal-deep);}
+.page-hero{padding:160px 64px 80px;background:var(--royal-deep);position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(212,168,67,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(212,168,67,.06) 1px,transparent 1px);background-size:60px 60px;}
+.page-hero-inner{position:relative;z-index:2;max-width:700px;}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:.68rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:24px;}.breadcrumb a{color:var(--gold);text-decoration:none;}
+.page-h1{font-family:'DM Serif Display',serif;font-size:clamp(2.8rem,5vw,5rem);font-weight:400;line-height:1.06;color:var(--white);margin-bottom:24px;}.page-h1 span{color:var(--gold);font-style:italic;}
+.page-sub{font-size:1rem;line-height:1.8;color:rgba(255,255,255,.6);max-width:560px;}
+.sec{padding:80px 64px;}
+.sec-label{font-size:.65rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px;}.sec-label::before{content:'';width:24px;height:2px;background:var(--gold);}
+.sec-h2{font-family:'DM Serif Display',serif;font-size:clamp(2rem,3.2vw,3.2rem);line-height:1.12;margin-bottom:24px;}
+.sec-body{font-size:.95rem;line-height:1.88;color:var(--slate);max-width:680px;}
+
+/* SEARCH */
+.sds-search{background:var(--off);padding:40px 64px;border-bottom:1px solid var(--border);}
+.search-wrap{max-width:600px;position:relative;}
+.search-input{width:100%;padding:16px 20px 16px 52px;border:2px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.95rem;color:var(--royal-deep);outline:none;transition:border-color .3s;background:var(--white);}
+.search-input:focus{border-color:var(--gold);}
+.search-icon{position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:1.1rem;color:var(--slate);}
+
+/* SDS TABLE */
+.sds-table-wrap{overflow-x:auto;}
+.sds-table{width:100%;border-collapse:collapse;margin-top:32px;}
+.sds-table th{background:var(--royal-deep);color:var(--white);padding:14px 20px;text-align:left;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;}
+.sds-table th:first-child{border-radius:8px 0 0 0;}
+.sds-table th:last-child{border-radius:0 8px 0 0;}
+.sds-table td{padding:14px 20px;font-size:.88rem;border-bottom:1px solid var(--border);}
+.sds-table tr:hover td{background:var(--off);}
+.sds-table .badge{display:inline-block;padding:3px 10px;border-radius:100px;font-size:.65rem;font-weight:600;letter-spacing:.08em;}
+.badge-chemical{background:rgba(212,168,67,.15);color:#8b6f00;}
+.badge-cleaner{background:rgba(26,45,90,.1);color:var(--royal);}
+.badge-sanitizer{background:rgba(34,197,94,.12);color:#15803d;}
+.badge-degreaser{background:rgba(239,68,68,.1);color:#b91c1c;}
+.btn-download{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;background:var(--off);border:1px solid var(--border);border-radius:6px;font-size:.72rem;font-weight:600;color:var(--royal);text-decoration:none;transition:all .3s;}
+.btn-download:hover{background:var(--royal);color:var(--white);border-color:var(--royal);}
+
+/* INFO BOXES */
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px;}
+.info-box{padding:32px 28px;border-radius:12px;border:1px solid var(--border);}
+.info-box-icon{font-size:2rem;display:block;margin-bottom:14px;}
+.info-box-title{font-size:.9rem;font-weight:600;margin-bottom:8px;}
+.info-box-body{font-size:.82rem;line-height:1.75;color:var(--slate);}
+
+.cta-band{background:var(--royal);padding:72px 64px;display:flex;align-items:center;justify-content:space-between;gap:40px;}
+.cta-band-text{font-family:'DM Serif Display',serif;font-size:2.2rem;color:var(--white);max-width:500px;line-height:1.2;}
+.btn-gold{display:inline-flex;align-items:center;gap:12px;padding:16px 36px;background:var(--gold);color:var(--royal-deep);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:all .4s;}.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
+footer{background:var(--royal-deep);padding:40px 64px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.06);}
+.footer-logo{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--white);}.footer-logo span{color:var(--gold);}
+.footer-links{display:flex;gap:28px;list-style:none;}.footer-links a{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;transition:color .3s;}.footer-links a:hover{color:var(--gold);}
+.footer-copy{font-size:.65rem;color:rgba(255,255,255,.2);}
+.rv{opacity:0;transform:translateY(32px);transition:opacity .9s ease,transform .9s cubic-bezier(.16,1,.3,1);}.rv.in{opacity:1;transform:none;}.rv-d1{transition-delay:.12s;}
+@media(max-width:900px){nav{padding:20px 24px;}nav.scrolled{padding:14px 24px;}.page-hero,.sec,.sds-search,.cta-band{padding:72px 24px;}.info-grid{grid-template-columns:1fr;}.cta-band{flex-direction:column;}.footer-links{flex-wrap:wrap;}footer{flex-direction:column;gap:16px;text-align:center;}}
+</style>
+</head>
+<body>
+<div class="cur" id="cur"></div><div class="cur-ring" id="curRing"></div>
+<nav id="nav">
+  <a href="royal_supply_redesign.html" class="nav-logo"><div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2L3 7l9 5 9-5-9-5zM3 17l9 5 9-5M3 12l9 5 9-5"/></svg></div><span class="nav-logo-text">Royal Supply</span></a>
+  <ul class="nav-links">
+    <li><a href="royal_supply_about.html">About</a></li>
+    <li class="nav-dropdown"><a href="royal_supply_products.html" class="active">Products ▾</a><ul class="dropdown-menu"><li><a href="royal_supply_products.html">All Products</a></li><li><a href="royal_supply_equipment_repair.html">Equipment Repair</a></li><li><a href="royal_supply_sds.html">SDS Sheets</a></li></ul></li>
+    <li><a href="royal_supply_suppliers.html">Suppliers</a></li>
+    <li><a href="royal_supply_blog.html">Blog</a></li>
+    <li><a href="royal_supply_contact.html">Contact</a></li>
+  </ul>
+  <a href="royal_supply_contact.html" class="nav-cta">Get a Quote</a>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="royal_supply_redesign.html">Home</a><span>→</span><a href="royal_supply_products.html">Products</a><span>→</span>SDS Sheets</div>
+    <h1 class="page-h1">Safety Data<br><span>Sheets</span> —<br>OSHA compliant.</h1>
+    <p class="page-sub">Access Safety Data Sheets for all chemical products supplied by Royal Supply. Download, print, or request physical copies for your facility's compliance records.</p>
+  </div>
+</section>
+
+<div class="sds-search">
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" type="text" placeholder="Search by product name or brand..." id="sdsSearch" oninput="filterSDS(this.value)">
+  </div>
+</div>
+
+<section class="sec">
+  <div class="rv"><span class="sec-label">SDS Library</span><h2 class="sec-h2">Product Safety Documentation</h2>
+  <p class="sec-body">All chemical products supplied by Royal Supply come with current, OSHA-compliant Safety Data Sheets. Contact us if you need an SDS for a product not listed below or require physical copies for your binder.</p></div>
+
+  <div class="sds-table-wrap rv rv-d1">
+    <table class="sds-table" id="sdsTable">
+      <thead>
+        <tr><th>Product Name</th><th>Brand</th><th>Category</th><th>SDS Document</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>409 Multi-Surface Cleaner</td><td>Clorox</td><td><span class="badge badge-cleaner">Cleaner</span></td><td><a href="royal_supply_contact.html" class="btn-download">📄 Request SDS</a></td></tr>
+        <tr><td>Comet Disinfecting Cleanser</td><td>3M</td><td><span class="badge badge-sanitizer">Disinfectant</span></td><td><a href="royal_supply_contact.html" class="btn-download">📄 Request SDS</a></td></tr>
+        <tr><td>Multi-Melt Ice Melter</td><td>Ice Eater</td><td><span class="badge badge-chemical">Chemical</span></td><td><a href="royal_supply_contact.html" class="btn-download">📄 Request SDS</a></td></tr>
+        <tr><td>Floor Finish — High Gloss</td><td>Essential Industries</td><td><span class="badge badge-cleaner">Floor Care</span></td><td><a href="royal_supply_contact.html" class="btn-download">📄 Request SDS</a></td></tr>
+        <tr><td>Heavy Duty Degreaser</td><td>Nyco</td><td><span class="badge badge-degreaser">Degreaser</span></td><td><a href="royal_supply_contact.html" class="btn-download">📄 Request SDS</a></td></tr>
+        <tr><td>GOJO Hand Soap</td><td>GOJO</td><td><span class="badge badge-sanitizer">Hand Care</span></td><td><a href="royal_supply_contact.html" class="btn-download">📄 Request SDS</a></td></tr>
+        <tr><td>Lysol Disinfectant Spray</td><td>Lysol</td><td><span class="badge badge-sanitizer">Disinfectant</span></td><td><a href="royal_supply_contact.html" class="btn-download">📄 Request SDS</a></td></tr>
+        <tr><td>Carpet Extractor Solution</td><td>Prochem</td><td><span class="badge badge-cleaner">Carpet Care</span></td><td><a href="royal_supply_contact.html" class="btn-download">📄 Request SDS</a></td></tr>
+        <tr><td>Restroom Disinfectant Bowl Cleaner</td><td>Big D</td><td><span class="badge badge-sanitizer">Disinfectant</span></td><td><a href="royal_supply_contact.html" class="btn-download">📄 Request SDS</a></td></tr>
+        <tr><td>Floor Stripper — Low Odor</td><td>Pacific</td><td><span class="badge badge-chemical">Chemical</span></td><td><a href="royal_supply_contact.html" class="btn-download">📄 Request SDS</a></td></tr>
+        <tr><td>Hand Sanitizer Gel 70%</td><td>Kutol</td><td><span class="badge badge-sanitizer">Sanitizer</span></td><td><a href="royal_supply_contact.html" class="btn-download">📄 Request SDS</a></td></tr>
+        <tr><td>Sport-Kote Floor Finish</td><td>Sport-Kote</td><td><span class="badge badge-cleaner">Floor Care</span></td><td><a href="royal_supply_contact.html" class="btn-download">📄 Request SDS</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-grid" style="margin-top:64px;">
+    <div class="info-box rv"><span class="info-box-icon">📋</span><div class="info-box-title">OSHA Compliance</div><p class="info-box-body">All SDS documents follow OSHA's Hazard Communication Standard (29 CFR 1910.1200) GHS format — 16 sections as required.</p></div>
+    <div class="info-box rv rv-d1"><span class="info-box-icon">📬</span><div class="info-box-title">Request Physical Copies</div><p class="info-box-body">Need printed SDS binders for your facility? Contact us and we'll prepare physical documentation for your records.</p></div>
+    <div class="info-box rv rv-d1"><span class="info-box-icon">🔄</span><div class="info-box-title">Always Up to Date</div><p class="info-box-body">We update our SDS library when manufacturers revise their documents. Contact us to confirm you have the latest version.</p></div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="cta-band-text">Can't find an SDS? We'll get it for you.</div>
+  <a href="royal_supply_contact.html" class="btn-gold"><span>Contact Us</span><span>→</span></a>
+</div>
+
+<footer>
+  <div class="footer-logo"><span>Royal</span> Supply Inc.</div>
+  <ul class="footer-links"><li><a href="royal_supply_about.html">About</a></li><li><a href="royal_supply_products.html">Products</a></li><li><a href="royal_supply_suppliers.html">Suppliers</a></li><li><a href="royal_supply_blog.html">Blog</a></li><li><a href="royal_supply_contact.html">Contact</a></li></ul>
+  <span class="footer-copy">© 2026 Royal Supply Inc. — Elk River, Minnesota</span>
+</footer>
+<script>
+const cur=document.getElementById('cur'),ring=document.getElementById('curRing');let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=(mx-5)+'px';cur.style.top=(my-5)+'px';});
+(function a(){rx+=(mx-rx-19)*.1;ry+=(my-ry-19)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a)})();
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>60));
+document.querySelectorAll('.rv').forEach(el=>new IntersectionObserver(([e])=>{if(e.isIntersecting)el.classList.add('in')},{threshold:.1}).observe(el));
+function filterSDS(q){
+  const rows=document.querySelectorAll('#sdsTable tbody tr');
+  rows.forEach(r=>{r.style.display=r.textContent.toLowerCase().includes(q.toLowerCase())?'':'none';});
+}
+</script>
+</body>
+</html>

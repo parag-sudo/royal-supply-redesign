@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Royal Supply Inc.</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
+:root{--royal:#1a2d5a;--royal-deep:#0f1d3d;--gold:#d4a843;--gold-light:#f0d080;--white:#ffffff;--off:#f5f7fb;--slate:#4a5568;--border:rgba(26,45,90,.1);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--royal-deep);overflow-x:hidden;cursor:none;}
+.cur{width:10px;height:10px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;}
+.cur-ring{width:38px;height:38px;border:1.5px solid var(--royal);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:20px 64px;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--border);transition:all .4s;}
+nav.scrolled{background:rgba(255,255,255,.95);backdrop-filter:blur(24px);box-shadow:0 1px 0 var(--border);padding:16px 64px;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}.nav-logo-icon{width:40px;height:40px;background:var(--royal);border-radius:8px;display:flex;align-items:center;justify-content:center;}.nav-logo-icon svg{width:22px;height:22px;fill:var(--gold);}.nav-logo-text{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--royal-deep);}
+.nav-links{display:flex;gap:40px;list-style:none;}.nav-links a{font-size:.8rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--royal-deep);text-decoration:none;transition:color .3s;}.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-dropdown{position:relative;}.dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:8px 0;min-width:180px;box-shadow:0 8px 32px rgba(26,45,90,.12);list-style:none;z-index:300;}.dropdown-menu li a{display:block;padding:10px 20px;font-size:.78rem;letter-spacing:.06em;color:var(--royal-deep);text-transform:none;font-weight:400;transition:background .2s,color .2s;}.dropdown-menu li a:hover{background:var(--off);color:var(--gold);}.nav-dropdown:hover .dropdown-menu{display:block;}
+.nav-cta{padding:11px 28px;background:var(--royal);color:var(--white);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:all .3s;}.nav-cta:hover{background:var(--gold);color:var(--royal-deep);}
+.page-hero{padding:140px 64px 64px;background:var(--royal-deep);position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(212,168,67,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(212,168,67,.06) 1px,transparent 1px);background-size:60px 60px;}
+.page-hero-inner{position:relative;z-index:2;max-width:700px;}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:.68rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:24px;}.breadcrumb a{color:var(--gold);text-decoration:none;}
+.page-h1{font-family:'DM Serif Display',serif;font-size:clamp(2.8rem,5vw,5rem);font-weight:400;line-height:1.06;color:var(--white);margin-bottom:24px;}.page-h1 span{color:var(--gold);font-style:italic;}
+.page-sub{font-size:1rem;line-height:1.8;color:rgba(255,255,255,.6);max-width:560px;}
+.sec-label{font-size:.65rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px;}.sec-label::before{content:'';width:24px;height:2px;background:var(--gold);}
+.sec-h2{font-family:'DM Serif Display',serif;font-size:clamp(2rem,3.2vw,3.2rem);line-height:1.12;margin-bottom:24px;}
+
+/* BLOG LAYOUT */
+.blog-layout{display:grid;grid-template-columns:1fr 340px;gap:64px;padding:80px 64px;align-items:start;}
+.blog-main{}
+.blog-sidebar{position:sticky;top:100px;}
+
+/* FEATURED POST */
+.featured-post{border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:48px;transition:all .4s;}
+.featured-post:hover{box-shadow:0 20px 56px rgba(26,45,90,.1);transform:translateY(-4px);}
+.featured-img{height:260px;background:linear-gradient(135deg,var(--royal),var(--royal-mid));display:flex;align-items:center;justify-content:center;font-size:6rem;position:relative;}
+.featured-tag{position:absolute;top:20px;left:20px;padding:6px 14px;background:var(--gold);border-radius:100px;font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--royal-deep);}
+.featured-body{padding:40px;}
+.post-meta{display:flex;align-items:center;gap:16px;margin-bottom:16px;}
+.post-date{font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);}
+.post-cats{display:flex;gap:8px;}
+.post-cat{padding:3px 10px;background:var(--off);border-radius:100px;font-size:.65rem;font-weight:500;color:var(--slate);}
+.featured-title{font-family:'DM Serif Display',serif;font-size:1.8rem;line-height:1.2;margin-bottom:16px;transition:color .3s;cursor:pointer;}
+.featured-post:hover .featured-title{color:var(--gold);}
+.featured-excerpt{font-size:.9rem;line-height:1.8;color:var(--slate);margin-bottom:24px;}
+.read-more{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--royal);text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:gap .3s,color .3s;}
+.read-more:hover{color:var(--gold);gap:14px;}
+
+/* POST LIST */
+.post-list{display:flex;flex-direction:column;gap:24px;}
+.post-card{border:1px solid var(--border);border-radius:12px;padding:28px;display:flex;gap:20px;align-items:flex-start;transition:all .4s;cursor:pointer;}
+.post-card:hover{box-shadow:0 8px 28px rgba(26,45,90,.08);transform:translateX(4px);border-color:rgba(212,168,67,.3);}
+.post-card-emoji{font-size:2.4rem;flex-shrink:0;width:56px;height:56px;background:var(--off);border-radius:10px;display:flex;align-items:center;justify-content:center;}
+.post-card-body{flex:1;}
+.post-card-title{font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:8px;transition:color .3s;}
+.post-card:hover .post-card-title{color:var(--gold);}
+.post-card-excerpt{font-size:.82rem;line-height:1.75;color:var(--slate);}
+.post-card-meta{display:flex;align-items:center;gap:12px;margin-top:12px;}
+
+/* SIDEBAR */
+.sidebar-box{background:var(--off);border-radius:12px;padding:28px;margin-bottom:24px;}
+.sidebar-title{font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--border);}
+.sidebar-cats{list-style:none;display:flex;flex-direction:column;gap:0;}
+.sidebar-cats li a{display:flex;align-items:center;justify-content:space-between;padding:10px 0;font-size:.85rem;color:var(--royal-deep);text-decoration:none;border-bottom:1px solid var(--border);transition:color .3s;}
+.sidebar-cats li:last-child a{border-bottom:none;}
+.sidebar-cats li a:hover{color:var(--gold);}
+.cat-count{background:var(--royal);color:var(--white);border-radius:100px;padding:2px 8px;font-size:.65rem;font-weight:600;}
+.sidebar-tags{display:flex;flex-wrap:wrap;gap:8px;}
+.stag{padding:6px 14px;border:1px solid var(--border);border-radius:100px;font-size:.75rem;color:var(--slate);cursor:pointer;transition:all .3s;}
+.stag:hover{background:var(--royal);color:var(--white);border-color:var(--royal);}
+.sidebar-cta{background:var(--royal);border-radius:12px;padding:28px;text-align:center;}
+.sidebar-cta-title{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--white);margin-bottom:12px;}
+.sidebar-cta-sub{font-size:.8rem;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:20px;}
+.btn-gold-sm{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--gold);color:var(--royal-deep);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:all .3s;}
+.btn-gold-sm:hover{background:var(--gold-light);}
+
+footer{background:var(--royal-deep);padding:40px 64px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.06);}
+.footer-logo{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--white);}.footer-logo span{color:var(--gold);}
+.footer-links{display:flex;gap:28px;list-style:none;}.footer-links a{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;transition:color .3s;}.footer-links a:hover{color:var(--gold);}
+.footer-copy{font-size:.65rem;color:rgba(255,255,255,.2);}
+.rv{opacity:0;transform:translateY(32px);transition:opacity .9s ease,transform .9s cubic-bezier(.16,1,.3,1);}.rv.in{opacity:1;transform:none;}.rv-d1{transition-delay:.12s;}.rv-d2{transition-delay:.24s;}
+@media(max-width:900px){nav{padding:20px 24px;}nav.scrolled{padding:14px 24px;}.page-hero{padding:120px 24px 60px;}.blog-layout{grid-template-columns:1fr;padding:48px 24px;}.blog-sidebar{position:static;}.footer-links{flex-wrap:wrap;}footer{flex-direction:column;gap:16px;text-align:center;}}
+</style>
+</head>
+<body>
+<div class="cur" id="cur"></div><div class="cur-ring" id="curRing"></div>
+<nav id="nav">
+  <a href="royal_supply_redesign.html" class="nav-logo"><div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2L3 7l9 5 9-5-9-5zM3 17l9 5 9-5M3 12l9 5 9-5"/></svg></div><span class="nav-logo-text">Royal Supply</span></a>
+  <ul class="nav-links">
+    <li><a href="royal_supply_about.html">About</a></li>
+    <li class="nav-dropdown"><a href="royal_supply_products.html">Products ▾</a><ul class="dropdown-menu"><li><a href="royal_supply_products.html">All Products</a></li><li><a href="royal_supply_equipment_repair.html">Equipment Repair</a></li><li><a href="royal_supply_sds.html">SDS Sheets</a></li></ul></li>
+    <li><a href="royal_supply_suppliers.html">Suppliers</a></li>
+    <li><a href="royal_supply_blog.html" class="active">Blog</a></li>
+    <li><a href="royal_supply_contact.html">Contact</a></li>
+  </ul>
+  <a href="royal_supply_contact.html" class="nav-cta">Get a Quote</a>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="royal_supply_redesign.html">Home</a><span>→</span>Blog</div>
+    <h1 class="page-h1">Facility tips &<br><span>industry</span><br>insights.</h1>
+    <p class="page-sub">Expert advice on cleaning products, sustainability, equipment care, and smarter facility management — from the Royal Supply team.</p>
+  </div>
+</section>
+
+<div class="blog-layout">
+  <div class="blog-main">
+    <!-- FEATURED -->
+    <div class="featured-post rv">
+      <div class="featured-img"><span>❄️</span><span class="featured-tag">Featured</span></div>
+      <div class="featured-body">
+        <div class="post-meta"><span class="post-date">December 27</span><div class="post-cats"><span class="post-cat">Products</span><span class="post-cat">Seasonal</span></div></div>
+        <div class="featured-title">'Tis the Season for Multi-Melt!</div>
+        <p class="featured-excerpt">When Minnesota temperatures plunge below zero, not every ice melt is up to the task. Multi-Melt™ Ice Melter works down to –25°F — the only brand we trust to perform when it matters most. Learn why we recommend it above all others for Minnesota's harshest winters.</p>
+        <a href="royal_supply_contact.html" class="read-more">Read More →</a>
+      </div>
+    </div>
+
+    <!-- POST LIST -->
+    <div class="post-list">
+      <div class="post-card rv">
+        <div class="post-card-emoji">🌸</div>
+        <div class="post-card-body">
+          <div class="post-card-title">Spring is in the Air!</div>
+          <p class="post-card-excerpt">Minnesota's unpredictable spring season is the perfect time to bring fresh fragrance indoors. Discover how scent products can improve mental health and morale in your facility.</p>
+          <div class="post-card-meta"><span class="post-date">March 18</span><span class="post-cat">Green</span><span class="post-cat">Products</span></div>
+        </div>
+      </div>
+      <div class="post-card rv rv-d1">
+        <div class="post-card-emoji">🧴</div>
+        <div class="post-card-body">
+          <div class="post-card-title">Hand Sanitizer and Masks: What You Need to Know</div>
+          <p class="post-card-excerpt">Not all hand sanitizers are created equal. We break down CDC guidance on proper sanitizer selection, what to avoid (methanol alcohol), and how to choose products that actually protect your team.</p>
+          <div class="post-card-meta"><span class="post-date">January 29</span><span class="post-cat">Products</span></div>
+        </div>
+      </div>
+      <div class="post-card rv rv-d2">
+        <div class="post-card-emoji">🦠</div>
+        <div class="post-card-body">
+          <div class="post-card-title">Sanitizers vs. Disinfectants: Know the Difference</div>
+          <p class="post-card-excerpt">The technical distinction matters more than you think. We explain different concentrate ratios, application methods, and when to use each — so your facility's cleaning program actually works.</p>
+          <div class="post-card-meta"><span class="post-date">November 17</span><span class="post-cat">Green</span><span class="post-cat">Products</span></div>
+        </div>
+      </div>
+      <div class="post-card rv">
+        <div class="post-card-emoji">🧼</div>
+        <div class="post-card-body">
+          <div class="post-card-title">Free Dispensers? The Hidden Cost You're Not Seeing</div>
+          <p class="post-card-excerpt">That "free dispenser" from a major manufacturer sounds like a great deal — until you're locked into buying overpriced proprietary refills for years. We reveal the real math behind this common trap.</p>
+          <div class="post-card-meta"><span class="post-date">October 8</span><span class="post-cat">Local</span><span class="post-cat">Products</span></div>
+        </div>
+      </div>
+      <div class="post-card rv rv-d1">
+        <div class="post-card-emoji">🏪</div>
+        <div class="post-card-body">
+          <div class="post-card-title">Buying Local Makes Sense for Janitorial Supplies</div>
+          <p class="post-card-excerpt">Local purchasing offers more than community support — it means real price comparisons, faster delivery, and superior post-sale equipment support from people who know your area.</p>
+          <div class="post-card-meta"><span class="post-date">May 26</span><span class="post-cat">Business</span><span class="post-cat">Local</span></div>
+        </div>
+      </div>
+      <div class="post-card rv rv-d2">
+        <div class="post-card-emoji">🌿</div>
+        <div class="post-card-body">
+          <div class="post-card-title">Becoming Green: A 20-Year Trend That's Here to Stay</div>
+          <p class="post-card-excerpt">Environmentally friendly cleaning products and paper goods have gone from niche to mainstream over the past two decades. Here's how your facility can make the transition without sacrificing performance.</p>
+          <div class="post-card-meta"><span class="post-date">May 4</span><span class="post-cat">Green</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="blog-sidebar">
+    <div class="sidebar-box rv">
+      <div class="sidebar-title">Categories</div>
+      <ul class="sidebar-cats">
+        <li><a href="#">Products <span class="cat-count">5</span></a></li>
+        <li><a href="#">Green / Sustainability <span class="cat-count">3</span></a></li>
+        <li><a href="#">Local Business <span class="cat-count">2</span></a></li>
+        <li><a href="#">Seasonal <span class="cat-count">2</span></a></li>
+        <li><a href="#">Business Tips <span class="cat-count">1</span></a></li>
+      </ul>
+    </div>
+    <div class="sidebar-box rv rv-d1">
+      <div class="sidebar-title">Popular Tags</div>
+      <div class="sidebar-tags">
+        <span class="stag">Hand Sanitizer</span><span class="stag">Disinfectants</span><span class="stag">Ice Melt</span><span class="stag">Green Cleaning</span><span class="stag">Dispensers</span><span class="stag">Local</span><span class="stag">Minnesota</span><span class="stag">Floor Care</span>
+      </div>
+    </div>
+    <div class="sidebar-cta rv rv-d2">
+      <div class="sidebar-cta-title">Need a product recommendation?</div>
+      <p class="sidebar-cta-sub">Our team is happy to help you find the right solution for your facility. Get a free needs analysis.</p>
+      <a href="royal_supply_contact.html" class="btn-gold-sm">Contact Us →</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="footer-logo"><span>Royal</span> Supply Inc.</div>
+  <ul class="footer-links"><li><a href="royal_supply_about.html">About</a></li><li><a href="royal_supply_products.html">Products</a></li><li><a href="royal_supply_suppliers.html">Suppliers</a></li><li><a href="royal_supply_blog.html">Blog</a></li><li><a href="royal_supply_contact.html">Contact</a></li></ul>
+  <span class="footer-copy">© 2026 Royal Supply Inc. — Elk River, Minnesota</span>
+</footer>
+<script>
+const cur=document.getElementById('cur'),ring=document.getElementById('curRing');let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=(mx-5)+'px';cur.style.top=(my-5)+'px';});
+(function a(){rx+=(mx-rx-19)*.1;ry+=(my-ry-19)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a)})();
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>60));
+document.querySelectorAll('.rv').forEach(el=>new IntersectionObserver(([e])=>{if(e.isIntersecting)el.classList.add('in')},{threshold:.1}).observe(el));
+</script>
+</body>
+</html>

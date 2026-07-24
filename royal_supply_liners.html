@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trash Can Liner Bags | Royal Supply Inc.</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
+:root{--royal:#1a2d5a;--royal-mid:#243d75;--royal-deep:#0f1d3d;--gold:#d4a843;--gold-light:#f0d080;--white:#ffffff;--off:#f5f7fb;--slate:#4a5568;--border:rgba(26,45,90,.1);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--royal-deep);overflow-x:hidden;cursor:none;}
+.cur{width:10px;height:10px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;}
+.cur-ring{width:38px;height:38px;border:1.5px solid var(--royal);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:20px 64px;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--border);transition:all .4s;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-logo-icon{width:40px;height:40px;background:var(--royal);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.nav-logo-icon svg{width:22px;height:22px;fill:var(--gold);}
+.nav-logo-text{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--royal-deep);}
+.nav-links{display:flex;gap:40px;list-style:none;}
+.nav-links a{font-size:.8rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--royal-deep);text-decoration:none;transition:color .3s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-dropdown{position:relative;}.dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:8px 0;min-width:180px;box-shadow:0 8px 32px rgba(26,45,90,.12);list-style:none;z-index:300;}
+.dropdown-menu li a{display:block;padding:10px 20px;font-size:.78rem;letter-spacing:.06em;color:var(--royal-deep);text-transform:none;font-weight:400;transition:background .2s,color .2s;}
+.dropdown-menu li a:hover{background:var(--off);color:var(--gold);}
+.nav-dropdown:hover .dropdown-menu{display:block;}
+.nav-cta{padding:11px 28px;background:var(--royal);color:var(--white);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:all .3s;}
+.nav-cta:hover{background:var(--gold);color:var(--royal-deep);}
+.page-hero{padding:140px 64px 72px;background:var(--royal-deep);position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(212,168,67,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(212,168,67,.06) 1px,transparent 1px);background-size:60px 60px;}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:20px;}
+.breadcrumb a{color:var(--gold);text-decoration:none;}
+.page-h1{font-family:'DM Serif Display',serif;font-size:clamp(2.6rem,5vw,4.5rem);color:var(--white);line-height:1.06;margin-bottom:20px;}
+.page-sub{font-size:.97rem;line-height:1.82;color:rgba(255,255,255,.6);max-width:560px;}
+.spec-strip{display:flex;gap:48px;margin-top:40px;flex-wrap:wrap;}
+.spec-item{text-align:center;}
+.spec-num{font-family:'DM Serif Display',serif;font-size:2.2rem;color:var(--gold);display:block;}
+.spec-label{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.4);}
+
+.sec{padding:80px 64px;}
+.sec-label{display:flex;align-items:center;gap:12px;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.sec-label::before{content:'';width:24px;height:2px;background:var(--gold);}
+.sec-h2{font-family:'DM Serif Display',serif;font-size:clamp(2rem,3.5vw,3rem);color:var(--royal-deep);margin-bottom:40px;}
+
+/* SPEC TABLE */
+.spec-table{width:100%;border-collapse:collapse;}
+.spec-table th{padding:14px 20px;text-align:left;font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--white);background:var(--royal);border-right:1px solid rgba(255,255,255,.1);}
+.spec-table th:last-child{border-right:none;}
+.spec-table td{padding:14px 20px;font-size:.85rem;border-bottom:1px solid var(--border);color:var(--royal-deep);}
+.spec-table tr:nth-child(even) td{background:var(--off);}
+.spec-table tr:hover td{background:rgba(212,168,67,.06);}
+.badge{display:inline-block;padding:3px 10px;border-radius:100px;font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;}
+.badge-heavy{background:rgba(26,45,90,.08);color:var(--royal);}
+.badge-extra{background:rgba(212,168,67,.15);color:#8a6510;}
+.badge-std{background:rgba(74,85,104,.1);color:var(--slate);}
+
+/* PRODUCT TYPES */
+.types-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.type-card{background:var(--off);border:1px solid var(--border);border-radius:12px;padding:36px 28px;transition:all .4s;}
+.type-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(26,45,90,.08);border-color:rgba(212,168,67,.4);}
+.type-icon{font-size:2.4rem;margin-bottom:14px;display:block;}
+.type-name{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--royal-deep);margin-bottom:8px;}
+.type-desc{font-size:.83rem;line-height:1.75;color:var(--slate);}
+.type-specs{margin-top:14px;font-size:.75rem;color:var(--slate);}
+.type-specs span{display:block;padding:4px 0;border-top:1px solid var(--border);}
+
+/* BRANDS */
+.brands-grid{display:flex;gap:16px;flex-wrap:wrap;margin-top:32px;}
+.brand-card{background:var(--off);border:1px solid var(--border);border-radius:8px;padding:18px 28px;font-size:.88rem;font-weight:600;color:var(--royal-deep);transition:all .3s;}
+.brand-card:hover{border-color:var(--gold);color:var(--gold);}
+
+.cta-band{background:var(--royal);padding:72px 64px;display:flex;align-items:center;justify-content:space-between;gap:40px;}
+.cta-text{font-family:'DM Serif Display',serif;font-size:2.2rem;color:var(--white);max-width:500px;line-height:1.2;}
+.cta-text span{color:var(--gold);font-style:italic;}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:var(--gold);color:var(--royal-deep);font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:all .4s;flex-shrink:0;}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
+
+footer{background:var(--royal-deep);padding:36px 64px;display:flex;align-items:center;justify-content:space-between;}
+.footer-logo{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--white);}.footer-logo span{color:var(--gold);}
+.footer-links{display:flex;gap:28px;list-style:none;}.footer-links a{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);text-decoration:none;transition:color .3s;}.footer-links a:hover{color:var(--gold);}
+.footer-copy{font-size:.62rem;color:rgba(255,255,255,.2);}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(.16,1,.3,1);}.rv.in{opacity:1;transform:none;}.rv-d1{transition-delay:.1s;}.rv-d2{transition-delay:.2s;}.rv-d3{transition-delay:.3s;}
+@media(max-width:900px){nav{padding:16px 24px;}.page-hero,.sec,.cta-band{padding:72px 24px;}.types-grid{grid-template-columns:1fr;}.spec-strip{gap:24px;}.cta-band{flex-direction:column;}footer{flex-direction:column;gap:16px;text-align:center;padding:36px 24px;}}
+</style>
+</head>
+<body>
+<div class="cur" id="cur"></div><div class="cur-ring" id="curRing"></div>
+<nav>
+  <a href="royal_supply_redesign.html" class="nav-logo"><div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2L3 7l9 5 9-5-9-5zM3 17l9 5 9-5M3 12l9 5 9-5"/></svg></div><span class="nav-logo-text">Royal Supply</span></a>
+  <ul class="nav-links">
+    <li><a href="royal_supply_about.html">About</a></li>
+    <li class="nav-dropdown"><a href="royal_supply_products.html" class="active">Products ▾</a><ul class="dropdown-menu"><li><a href="royal_supply_products.html">All Products</a></li><li><a href="royal_supply_equipment_repair.html">Equipment Repair</a></li><li><a href="royal_supply_sds.html">SDS Sheets</a></li></ul></li>
+    <li><a href="royal_supply_suppliers.html">Suppliers</a></li>
+    <li><a href="royal_supply_blog.html">Blog</a></li>
+    <li><a href="royal_supply_contact.html">Contact</a></li>
+  </ul>
+  <a href="royal_supply_contact.html" class="nav-cta">Get a Quote</a>
+</nav>
+
+<section class="page-hero">
+  <div class="breadcrumb"><a href="royal_supply_redesign.html">Home</a><span>→</span><a href="royal_supply_products.html">Products</a><span>→</span>Trash Can Liner Bags</div>
+  <h1 class="page-h1">Trash Can<br>Liner Bags</h1>
+  <p class="page-sub">Every size, gauge, and color — from desktop waste bins to industrial roll-off containers. Royal Supply stocks thousands of SKUs for same-week delivery across Minnesota.</p>
+  <div class="spec-strip">
+    <div class="spec-item"><span class="spec-num">50+</span><span class="spec-label">SKUs in stock</span></div>
+    <div class="spec-item"><span class="spec-num">7</span><span class="spec-label">Gauge options</span></div>
+    <div class="spec-item"><span class="spec-num">10+</span><span class="spec-label">Color options</span></div>
+    <div class="spec-item"><span class="spec-num">3</span><span class="spec-label">Material types</span></div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--off);">
+  <div class="rv"><div class="sec-label">Product Types</div><h2 class="sec-h2">Can liner types & applications</h2></div>
+  <div class="types-grid">
+    <div class="type-card rv"><span class="type-icon">🗑️</span><div class="type-name">Low-Density Liners</div><p class="type-desc">Flexible and puncture-resistant — ideal for wet waste, food scraps, and heavy loads. Won't tear when dragged.</p><div class="type-specs"><span>Gauges: 1.0 – 4.0 mil</span><span>Best for: Food waste, wet refuse</span><span>Sizes: 7 gal – 60 gal</span></div></div>
+    <div class="type-card rv rv-d1"><span class="type-icon">📦</span><div class="type-name">High-Density Liners</div><p class="type-desc">Thinner yet strong — excellent for dry waste, offices, and light-duty applications. More economical per unit.</p><div class="type-specs"><span>Gauges: 6 – 22 mic</span><span>Best for: Dry office waste</span><span>Sizes: 12 gal – 60 gal</span></div></div>
+    <div class="type-card rv rv-d2"><span class="type-icon">♻️</span><div class="type-name">Recycled Content Liners</div><p class="type-desc">Made from post-consumer recycled resin — same strength profile, reduced environmental footprint.</p><div class="type-specs"><span>PCR content: 10–80%</span><span>Best for: Green-certified facilities</span><span>Sizes: 30 gal – 55 gal</span></div></div>
+    <div class="type-card rv"><span class="type-icon">🏭</span><div class="type-name">Industrial Heavy-Duty</div><p class="type-desc">Extra-thick liners for construction debris, sharp objects, and industrial waste. Puncture and tear resistant.</p><div class="type-specs"><span>Gauges: 3.0 – 6.0 mil</span><span>Best for: Construction, manufacturing</span><span>Sizes: 33 gal – 95 gal</span></div></div>
+    <div class="type-card rv rv-d1"><span class="type-icon">🏥</span><div class="type-name">Colored ID Liners</div><p class="type-desc">Color-coded waste stream management — red for biohazard, blue for recycling, clear for general, black for landfill.</p><div class="type-specs"><span>Colors: Black, Clear, Red, Blue, Green, White, Yellow</span><span>Best for: Healthcare, regulated industries</span></div></div>
+    <div class="type-card rv rv-d2"><span class="type-icon">🔒</span><div class="type-name">Drawstring & Tie Flap</div><p class="type-desc">Easy closure for areas where quick bag changes are needed — restrooms, reception, high-turnover bins.</p><div class="type-specs"><span>Closure: Drawstring or star-seal</span><span>Best for: Restrooms, lobbies</span><span>Sizes: 13 gal – 33 gal</span></div></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="rv"><div class="sec-label">Specifications</div><h2 class="sec-h2">Common size & gauge specs</h2></div>
+  <div class="rv" style="overflow-x:auto;">
+  <table class="spec-table">
+    <thead><tr><th>Capacity</th><th>Dimensions (W × H)</th><th>Gauge / Mic</th><th>Material</th><th>Best Application</th><th>Case Qty</th></tr></thead>
+    <tbody>
+      <tr><td>7–10 gal</td><td>24" × 23"</td><td>0.7 mil LD</td><td>Low-density</td><td>Desktop / small bins</td><td>500/case</td></tr>
+      <tr><td>13 gal</td><td>24" × 33"</td><td>0.9 mil LD</td><td>Low-density</td><td>Kitchen, restroom</td><td>200/case</td></tr>
+      <tr><td>20–30 gal</td><td>30" × 36"</td><td>1.2 mil LD</td><td>Low-density</td><td>General waste, breakroom</td><td>150/case</td></tr>
+      <tr><td>33 gal</td><td>33" × 39"</td><td>1.5 mil LD</td><td>Low-density</td><td>Standard commercial</td><td>100/case</td></tr>
+      <tr><td>40–45 gal</td><td>40" × 46"</td><td>16 mic HD</td><td>High-density</td><td>Dry office waste</td><td>250/case</td></tr>
+      <tr><td>55–60 gal</td><td>38" × 58"</td><td>2.0 mil LD</td><td>Low-density</td><td>Large commercial bins</td><td>100/case</td></tr>
+      <tr><td>95 gal</td><td>61" × 68"</td><td>3.0–4.0 mil</td><td>Low-density heavy</td><td>Roll-off, outdoor dumpster</td><td>50/case</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--off);">
+  <div class="rv"><div class="sec-label">Our Brands</div><h2 class="sec-h2">Trusted liner brands we carry</h2></div>
+  <div class="brands-grid rv">
+    <div class="brand-card">Pitt Plastics</div>
+    <div class="brand-card">Toter</div>
+    <div class="brand-card">Empress</div>
+    <div class="brand-card">Inteplast / Bagcraft</div>
+    <div class="brand-card">Heritage Bag</div>
+    <div class="brand-card">Boardwalk</div>
+    <div class="brand-card">Carlisle</div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="cta-text">Need a specific size or <span>bulk pricing</span> for your facility?</div>
+  <a href="royal_supply_contact.html" class="btn-gold"><span>Request a Quote</span><span>→</span></a>
+</div>
+
+<footer>
+  <div class="footer-logo"><span>Royal</span> Supply Inc.</div>
+  <ul class="footer-links"><li><a href="royal_supply_products.html">Products</a></li><li><a href="royal_supply_suppliers.html">Suppliers</a></li><li><a href="royal_supply_contact.html">Contact</a></li></ul>
+  <span class="footer-copy">© 2026 Royal Supply Inc. — Elk River, Minnesota</span>
+</footer>
+<script>
+const cur=document.getElementById('cur'),ring=document.getElementById('curRing');let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=(mx-5)+'px';cur.style.top=(my-5)+'px';});
+(function a(){rx+=(mx-rx-19)*.1;ry+=(my-ry-19)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a)})();
+document.querySelectorAll('.rv').forEach(el=>new IntersectionObserver(([e])=>{if(e.isIntersecting)el.classList.add('in')},{threshold:.1}).observe(el));
+</script>
+</body>
+</html>

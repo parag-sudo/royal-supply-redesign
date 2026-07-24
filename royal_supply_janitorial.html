@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Janitorial Supplies & Tools — Royal Supply Inc.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{--royal:#1a2d5a;--royal-mid:#243d75;--royal-deep:#0f1d3d;--gold:#d4a843;--gold-light:#f0d080;--white:#ffffff;--off:#f5f7fb;--slate:#4a5568;--border:rgba(26,45,90,.1);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;color:var(--slate);background:var(--white);cursor:none;}
+.cursor-dot{position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);z-index:9999;transition:transform .1s;}
+.cursor-ring{position:fixed;width:32px;height:32px;border:2px solid var(--royal);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);z-index:9998;transition:left .12s ease,top .12s ease;}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;}
+.rv.in{opacity:1;transform:translateY(0);}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:20px 64px;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--border);transition:all .4s;}
+.nav-logo{text-decoration:none;display:flex;flex-direction:column;line-height:1.15;}
+.nav-logo .logo-main{font-family:'DM Serif Display',serif;font-size:22px;color:var(--royal);letter-spacing:-.5px;}
+.nav-logo .logo-sub{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none;}
+.nav-links a{text-decoration:none;font-size:14px;font-weight:500;color:var(--royal);transition:color .2s;letter-spacing:.3px;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-dropdown{position:relative;}
+.dropdown-menu{display:none;position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);background:white;border-radius:10px;padding:8px 0;min-width:190px;box-shadow:0 8px 32px rgba(0,0,0,.12);list-style:none;border:1px solid var(--border);}
+.dropdown-menu li a{display:block;padding:10px 20px;font-size:13px;white-space:nowrap;color:var(--royal);}
+.dropdown-menu li a:hover{color:var(--gold);background:var(--off);}
+.nav-dropdown:hover .dropdown-menu{display:block;}
+.nav-cta{text-decoration:none;background:var(--gold);color:var(--royal);font-weight:700;font-size:13px;padding:10px 24px;border-radius:6px;letter-spacing:.3px;transition:all .2s;}
+.nav-cta:hover{background:var(--royal);color:var(--white);}
+/* HERO */
+.hero{padding:140px 64px 80px;background:var(--royal-deep);color:white;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 72% 40%,rgba(212,168,67,.09) 0%,transparent 60%);}
+.hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:60px;background:var(--off);clip-path:ellipse(55% 100% at 50% 100%);}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:24px;position:relative;z-index:1;}
+.breadcrumb a{color:var(--gold);text-decoration:none;transition:opacity .2s;}
+.breadcrumb a:hover{opacity:.8;}
+.breadcrumb span{color:rgba(255,255,255,.25);}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,4.5vw,3.6rem);line-height:1.12;margin-bottom:20px;position:relative;z-index:1;}
+.hero-sub{font-size:17px;line-height:1.75;color:rgba(255,255,255,.72);max-width:600px;margin-bottom:52px;position:relative;z-index:1;}
+.hero-stats{display:flex;gap:56px;position:relative;z-index:1;flex-wrap:wrap;}
+.stat-item .stat-num{font-family:'DM Serif Display',serif;font-size:2.2rem;color:var(--gold);line-height:1;}
+.stat-item .stat-label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:4px;}
+/* TYPES */
+.types-section{padding:100px 64px;background:var(--off);}
+.section-tag{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px;}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,3vw,2.6rem);color:var(--royal);margin-bottom:14px;}
+.section-sub{font-size:16px;line-height:1.75;color:var(--slate);max-width:560px;}
+.types-header{margin-bottom:56px;}
+.types-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.type-card{background:white;border-radius:14px;padding:32px 28px;border:1px solid var(--border);transition:all .3s;}
+.type-card:hover{border-color:var(--gold);box-shadow:0 10px 36px rgba(26,45,90,.1);transform:translateY(-4px);}
+.type-emoji{font-size:2rem;margin-bottom:18px;display:block;}
+.type-name{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--royal);margin-bottom:10px;}
+.type-desc{font-size:14px;line-height:1.65;color:var(--slate);margin-bottom:18px;}
+.type-specs{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.type-specs li{font-size:13px;color:var(--royal-mid);display:flex;align-items:flex-start;gap:9px;line-height:1.45;}
+.type-specs li::before{content:'';width:5px;height:5px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:5px;}
+/* SPECS TABLE */
+.specs-section{padding:96px 64px;background:var(--white);}
+.specs-header{margin-bottom:48px;}
+.table-wrap{overflow-x:auto;border-radius:12px;box-shadow:0 2px 16px rgba(26,45,90,.07);border:1px solid var(--border);}
+table.specs-table{width:100%;border-collapse:collapse;font-size:14px;}
+table.specs-table thead tr{background:var(--royal);color:white;}
+table.specs-table thead th{padding:15px 18px;text-align:left;font-weight:600;letter-spacing:.3px;white-space:nowrap;}
+table.specs-table tbody tr:nth-child(even){background:var(--off);}
+table.specs-table tbody tr:hover{background:rgba(212,168,67,.07);}
+table.specs-table tbody td{padding:13px 18px;border-bottom:1px solid var(--border);color:var(--slate);line-height:1.45;}
+table.specs-table tbody td:first-child{font-weight:600;color:var(--royal);}
+table.specs-table tbody tr:last-child td{border-bottom:none;}
+/* BRANDS */
+.brands-section{padding:72px 64px;background:var(--off);}
+.brands-header{margin-bottom:36px;}
+.brands-flex{display:flex;flex-wrap:wrap;gap:12px;}
+.brand-chip{background:white;border:1px solid var(--border);border-radius:8px;padding:10px 22px;font-size:13px;font-weight:600;color:var(--royal);letter-spacing:.3px;transition:all .25s;cursor:default;}
+.brand-chip:hover{border-color:var(--gold);background:var(--royal);color:white;}
+/* CTA */
+.cta-band{padding:88px 64px;background:var(--royal);text-align:center;position:relative;overflow:hidden;}
+.cta-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(212,168,67,.1) 0%,transparent 55%);}
+.cta-band h2{font-family:'DM Serif Display',serif;font-size:2.3rem;color:white;margin-bottom:16px;position:relative;}
+.cta-band p{font-size:16px;color:rgba(255,255,255,.68);margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto;position:relative;}
+.cta-btn{display:inline-block;background:var(--gold);color:var(--royal);text-decoration:none;font-weight:700;padding:16px 42px;border-radius:8px;font-size:15px;letter-spacing:.3px;transition:all .25s;position:relative;}
+.cta-btn:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,168,67,.4);}
+/* FOOTER */
+footer{background:var(--royal-deep);color:rgba(255,255,255,.6);padding:72px 64px 32px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+.footer-brand .logo-main{font-family:'DM Serif Display',serif;font-size:20px;color:white;display:block;}
+.footer-brand .logo-sub{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block;}
+.footer-brand p{font-size:13px;line-height:1.75;max-width:250px;}
+.footer-col h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;font-weight:600;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col a{color:rgba(255,255,255,.58);text-decoration:none;font-size:14px;transition:color .2s;}
+.footer-col a:hover{color:var(--gold);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;font-size:12px;flex-wrap:wrap;gap:8px;}
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+  <a href="royal_supply_redesign.html" class="nav-logo">
+    <span class="logo-main">Royal Supply</span>
+    <span class="logo-sub">Elk River, MN</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="royal_supply_about.html">About</a></li>
+    <li class="nav-dropdown">
+      <a href="royal_supply_products.html" class="active">Products ▾</a>
+      <ul class="dropdown-menu">
+        <li><a href="royal_supply_products.html">All Products</a></li>
+        <li><a href="royal_supply_equipment_repair.html">Equipment Repair</a></li>
+        <li><a href="royal_supply_sds.html">SDS Sheets</a></li>
+      </ul>
+    </li>
+    <li><a href="royal_supply_suppliers.html">Suppliers</a></li>
+    <li><a href="royal_supply_blog.html">Blog</a></li>
+    <li><a href="royal_supply_contact.html">Contact</a></li>
+  </ul>
+  <a href="royal_supply_contact.html" class="nav-cta">Get a Quote</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="breadcrumb">
+    <a href="royal_supply_redesign.html">Home</a>
+    <span>/</span>
+    <a href="royal_supply_products.html">Products</a>
+    <span>/</span>
+    <span style="color:rgba(255,255,255,.7);">Janitorial Supplies</span>
+  </div>
+  <h1>Janitorial Supplies<br>&amp; Tools</h1>
+  <p class="hero-sub">Mops, brooms, buckets, wringers, floor squeegees, janitor carts, and more for commercial facilities across Minnesota.</p>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">200+</div>
+      <div class="stat-label">SKUs in stock</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">8</div>
+      <div class="stat-label">Product types</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Same-Week</div>
+      <div class="stat-label">Delivery available</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT TYPES -->
+<section class="types-section">
+  <div class="types-header rv">
+    <div class="section-tag">What We Carry</div>
+    <h2 class="section-title">Product Types</h2>
+    <p class="section-sub">From basic floor tools to fully outfitted janitorial carts, we stock everything your cleaning crew needs.</p>
+  </div>
+  <div class="types-grid">
+    <div class="type-card rv">
+      <span class="type-emoji">🧹</span>
+      <div class="type-name">Wet Mops</div>
+      <p class="type-desc">Professional-grade mop heads for daily wet mopping on hard floors. Available in cotton, microfiber, and rayon.</p>
+      <ul class="type-specs">
+        <li>Cotton, microfiber &amp; rayon yarn</li>
+        <li>12 oz to 32 oz weight range</li>
+        <li>Loop-end and cut-end styles</li>
+        <li>Color-coded options available</li>
+      </ul>
+    </div>
+    <div class="type-card rv">
+      <span class="type-emoji">🪣</span>
+      <div class="type-name">Brooms &amp; Brushes</div>
+      <p class="type-desc">Indoor and outdoor sweeping tools for all surface types — lobby floors, parking lots, kitchens, and more.</p>
+      <ul class="type-specs">
+        <li>Push brooms 18"–36" sweep face</li>
+        <li>Counter brushes &amp; hand brushes</li>
+        <li>Deck scrub brushes</li>
+        <li>Corn brooms &amp; lobby brooms</li>
+      </ul>
+    </div>
+    <div class="type-card rv">
+      <span class="type-emoji">🪣</span>
+      <div class="type-name">Buckets &amp; Wringers</div>
+      <p class="type-desc">Heavy-duty mop buckets and wringer systems for efficient floor cleaning with minimal mess.</p>
+      <ul class="type-specs">
+        <li>26 qt to 44 qt bucket capacity</li>
+        <li>Side-press wringer systems</li>
+        <li>Down-press wringer systems</li>
+        <li>Combo bucket-wringer units</li>
+      </ul>
+    </div>
+    <div class="type-card rv">
+      <span class="type-emoji">🛒</span>
+      <div class="type-name">Janitor Carts</div>
+      <p class="type-desc">Fully equipped housekeeping carts for hotels, hospitals, and commercial facilities to carry all supplies in one pass.</p>
+      <ul class="type-specs">
+        <li>Housekeeping &amp; maid carts</li>
+        <li>Room attendant carts</li>
+        <li>Open &amp; enclosed shelf designs</li>
+        <li>Heavy-duty plastic construction</li>
+      </ul>
+    </div>
+    <div class="type-card rv">
+      <span class="type-emoji">🪟</span>
+      <div class="type-name">Floor Squeegees</div>
+      <p class="type-desc">Channel squeegees and floor squeegees for moving water quickly on smooth concrete, tile, and sealed floors.</p>
+      <ul class="type-specs">
+        <li>18", 24", 30", and 36" widths</li>
+        <li>Rubber and neoprene blade options</li>
+        <li>Straight and curved channel styles</li>
+        <li>Compatible with standard handles</li>
+      </ul>
+    </div>
+    <div class="type-card rv">
+      <span class="type-emoji">🧽</span>
+      <div class="type-name">Dustpans &amp; Scoops</div>
+      <p class="type-desc">Lobby dustpans, counter dustpans, and heavy-duty scoops for dry debris collection in any facility.</p>
+      <ul class="type-specs">
+        <li>12" to 36" sizes available</li>
+        <li>Lobby long-handle dustpans</li>
+        <li>Counter-style and wall-mount</li>
+        <li>Metal and poly construction</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIFICATIONS TABLE -->
+<section class="specs-section">
+  <div class="specs-header rv">
+    <div class="section-tag">Specifications</div>
+    <h2 class="section-title">Product Specifications</h2>
+    <p class="section-sub">Key specs for our most popular janitorial supply items. Contact us for full catalog details and custom orders.</p>
+  </div>
+  <div class="table-wrap rv">
+    <table class="specs-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Type</th>
+          <th>Size Options</th>
+          <th>Material</th>
+          <th>Best Application</th>
+          <th>Case Qty</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Wet Mop Head</td>
+          <td>Loop-End</td>
+          <td>12 oz, 16 oz, 20 oz, 24 oz, 32 oz</td>
+          <td>Cotton / Rayon blend</td>
+          <td>General hard floor mopping</td>
+          <td>12 per case</td>
+        </tr>
+        <tr>
+          <td>Microfiber Mop Head</td>
+          <td>Cut-End / Flat</td>
+          <td>16 oz, 20 oz flat pad</td>
+          <td>Microfiber polyester</td>
+          <td>Healthcare, low-lint environments</td>
+          <td>12 per case</td>
+        </tr>
+        <tr>
+          <td>Push Broom</td>
+          <td>Flagged-tip bristles</td>
+          <td>18", 24", 30", 36" sweep face</td>
+          <td>Poly &amp; natural fiber blends</td>
+          <td>Warehouse, parking, lobby</td>
+          <td>6 per case</td>
+        </tr>
+        <tr>
+          <td>Mop Bucket</td>
+          <td>Wringer bucket combo</td>
+          <td>26 qt, 35 qt, 44 qt</td>
+          <td>Polypropylene</td>
+          <td>All wet mopping applications</td>
+          <td>1 each</td>
+        </tr>
+        <tr>
+          <td>Wringer (Separate)</td>
+          <td>Side-press / Down-press</td>
+          <td>Standard, heavy-duty</td>
+          <td>Galvanized steel &amp; poly</td>
+          <td>Pairs with 26–44 qt buckets</td>
+          <td>1 each</td>
+        </tr>
+        <tr>
+          <td>Floor Squeegee</td>
+          <td>Straight/Curved channel</td>
+          <td>18", 24", 30", 36"</td>
+          <td>Rubber / Neoprene blade</td>
+          <td>Wet floors, restrooms, kitchens</td>
+          <td>6 per case</td>
+        </tr>
+        <tr>
+          <td>Lobby Dustpan</td>
+          <td>Long-handle upright</td>
+          <td>12", 18" pan opening</td>
+          <td>High-density poly</td>
+          <td>Lobby, hallway debris collection</td>
+          <td>6 per case</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section class="brands-section">
+  <div class="brands-header rv">
+    <div class="section-tag">Trusted Partners</div>
+    <h2 class="section-title">Brands We Carry</h2>
+    <p class="section-sub">We stock products from the most trusted names in professional janitorial supplies.</p>
+  </div>
+  <div class="brands-flex rv">
+    <div class="brand-chip">Rubbermaid Commercial</div>
+    <div class="brand-chip">O-Cedar Professional</div>
+    <div class="brand-chip">Carlisle</div>
+    <div class="brand-chip">Unger</div>
+    <div class="brand-chip">Impact Products</div>
+    <div class="brand-chip">Boardwalk</div>
+    <div class="brand-chip">Continental Commercial</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <h2>Ready to restock your facility?</h2>
+  <p>Get a customized quote for janitorial supplies with same-week delivery across Minnesota.</p>
+  <a href="royal_supply_contact.html" class="cta-btn">Request a Quote →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo-main">Royal Supply Inc.</span>
+      <span class="logo-sub">Elk River, MN</span>
+      <p>Minnesota's trusted janitorial supply partner. Serving commercial facilities across the Twin Cities and greater Minnesota.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <ul>
+        <li><a href="royal_supply_products.html">All Products</a></li>
+        <li><a href="royal_supply_janitorial.html">Janitorial Supplies</a></li>
+        <li><a href="royal_supply_chemicals.html">Chemicals</a></li>
+        <li><a href="royal_supply_equipment_page.html">Equipment</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="royal_supply_about.html">About Us</a></li>
+        <li><a href="royal_supply_suppliers.html">Suppliers</a></li>
+        <li><a href="royal_supply_blog.html">Blog</a></li>
+        <li><a href="royal_supply_sds.html">SDS Sheets</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="royal_supply_contact.html">Get a Quote</a></li>
+        <li><a href="royal_supply_equipment_repair.html">Equipment Repair</a></li>
+        <li><a href="royal_supply_contact.html">Find Us in Elk River</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Royal Supply Inc. — Elk River, MN 55330</span>
+    <span>Janitorial &bull; Cleaning Chemicals &bull; Equipment Sales &amp; Repair</span>
+  </div>
+</footer>
+
+<script>
+const dot=document.getElementById('cursorDot');
+const ring=document.getElementById('cursorRing');
+document.addEventListener('mousemove',e=>{
+  dot.style.left=e.clientX+'px';
+  dot.style.top=e.clientY+'px';
+  ring.style.left=e.clientX+'px';
+  ring.style.top=e.clientY+'px';
+});
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});
+},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
