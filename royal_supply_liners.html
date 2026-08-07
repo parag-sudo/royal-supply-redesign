@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trash Can Liner Bags | Royal Supply Inc.</title>
+<title>Trash Can Liners | Royal Supply Inc.</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
 :root{--royal:#1a2d5a;--royal-mid:#243d75;--royal-deep:#0f1d3d;--gold:#d4a843;--gold-light:#f0d080;--white:#ffffff;--off:#f5f7fb;--slate:#4a5568;--border:rgba(26,45,90,.1);}
@@ -79,12 +79,35 @@ footer{background:var(--royal-deep);padding:36px 64px;display:flex;align-items:c
 .footer-copy{font-size:.62rem;color:rgba(255,255,255,.2);}
 .rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(.16,1,.3,1);}.rv.in{opacity:1;transform:none;}.rv-d1{transition-delay:.1s;}.rv-d2{transition-delay:.2s;}.rv-d3{transition-delay:.3s;}
 @media(max-width:900px){nav{padding:16px 24px;}.page-hero,.sec,.cta-band{padding:72px 24px;}.types-grid{grid-template-columns:1fr;}.spec-strip{gap:24px;}.cta-band{flex-direction:column;}footer{flex-direction:column;gap:16px;text-align:center;padding:36px 24px;}}
+
+/* MOBILE NAV */
+.hamburger{display:none;flex-direction:column;justify-content:center;align-items:flex-end;gap:5px;width:40px;height:36px;background:none;border:none;cursor:pointer;z-index:250;padding:0;}
+.hamburger span{display:block;width:26px;height:2px;background:var(--royal-deep,var(--royal));border-radius:2px;transition:all .3s ease;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu{position:fixed;top:0;right:0;width:min(320px,80vw);height:100vh;background:var(--white);z-index:240;padding:100px 32px 40px;display:flex;flex-direction:column;gap:8px;box-shadow:-8px 0 40px rgba(0,0,0,.15);transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);overflow-y:auto;}
+.mobile-menu.open{transform:translateX(0);}
+.mobile-menu-links{list-style:none;display:flex;flex-direction:column;gap:4px;}
+.mobile-menu-links li{border-bottom:1px solid var(--border,rgba(0,0,0,.08));}
+.mobile-menu-links a{display:block;padding:14px 0;font-size:.95rem;font-weight:500;color:var(--royal-deep,var(--royal));text-decoration:none;text-transform:uppercase;letter-spacing:.05em;}
+.mobile-menu .dropdown-menu{position:static !important;display:block !important;box-shadow:none;border:none;padding:0 0 0 16px;min-width:0;}
+.mobile-menu .nav-cta{margin-top:20px;text-align:center;}
+body.menu-open{overflow:hidden;}
+@media(max-width:900px){.nav-links{display:none;}.hamburger{display:flex;}}
+
+/* FOOTER SOCIAL */
+footer{flex-wrap:wrap;}
+.footer-social{display:flex;gap:14px;align-items:center;justify-content:center;flex-basis:100%;margin-top:20px;order:99;}
+.footer-social a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.55);transition:all .3s;flex-shrink:0;}
+.footer-social a:hover{background:#d4a843;color:#0f1d3d;}
+.footer-social svg{width:16px;height:16px;fill:currentColor;}
 </style>
 </head>
 <body>
 <div class="cur" id="cur"></div><div class="cur-ring" id="curRing"></div>
 <nav>
-  <a href="royal_supply_redesign.html" class="nav-logo"><div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2L3 7l9 5 9-5-9-5zM3 17l9 5 9-5M3 12l9 5 9-5"/></svg></div><span class="nav-logo-text">Royal Supply</span></a>
+  <a href="royal_supply_redesign.html" class="nav-logo"><img src="royal-supply-images/logo.png" alt="Royal Supply" style="height:42px;width:auto;display:block;"></a>
   <ul class="nav-links">
     <li><a href="royal_supply_about.html">About</a></li>
     <li class="nav-dropdown"><a href="royal_supply_products.html" class="active">Products ▾</a><ul class="dropdown-menu"><li><a href="royal_supply_products.html">All Products</a></li><li><a href="royal_supply_equipment_repair.html">Equipment Repair</a></li><li><a href="royal_supply_sds.html">SDS Sheets</a></li></ul></li>
@@ -92,13 +115,13 @@ footer{background:var(--royal-deep);padding:36px 64px;display:flex;align-items:c
     <li><a href="royal_supply_blog.html">Blog</a></li>
     <li><a href="royal_supply_contact.html">Contact</a></li>
   </ul>
-  <a href="royal_supply_contact.html" class="nav-cta">Get a Quote</a>
+  <a href="royal_supply_contact.html" class="nav-cta">Pay Now</a>
 </nav>
 
 <section class="page-hero">
-  <div class="breadcrumb"><a href="royal_supply_redesign.html">Home</a><span>→</span><a href="royal_supply_products.html">Products</a><span>→</span>Trash Can Liner Bags</div>
-  <h1 class="page-h1">Trash Can<br>Liner Bags</h1>
-  <p class="page-sub">Every size, gauge, and color — from desktop waste bins to industrial roll-off containers. Royal Supply stocks thousands of SKUs for same-week delivery across Minnesota.</p>
+  <div class="breadcrumb"><a href="royal_supply_redesign.html">Home</a><span>→</span><a href="royal_supply_products.html">Products</a><span>→</span>Trash Can Liners</div>
+  <h1 class="page-h1">Trash Can<br>Liners</h1>
+  <p class="page-sub">Every size, gauge, and color — from desktop waste bins to industrial roll-off containers. Royal Supply stocks thousands of SKUs, delivered free locally.</p>
   <div class="spec-strip">
     <div class="spec-item"><span class="spec-num">50+</span><span class="spec-label">SKUs in stock</span></div>
     <div class="spec-item"><span class="spec-num">7</span><span class="spec-label">Gauge options</span></div>
@@ -113,7 +136,7 @@ footer{background:var(--royal-deep);padding:36px 64px;display:flex;align-items:c
     <div class="type-card rv"><span class="type-icon">🗑️</span><div class="type-name">Low-Density Liners</div><p class="type-desc">Flexible and puncture-resistant — ideal for wet waste, food scraps, and heavy loads. Won't tear when dragged.</p><div class="type-specs"><span>Gauges: 1.0 – 4.0 mil</span><span>Best for: Food waste, wet refuse</span><span>Sizes: 7 gal – 60 gal</span></div></div>
     <div class="type-card rv rv-d1"><span class="type-icon">📦</span><div class="type-name">High-Density Liners</div><p class="type-desc">Thinner yet strong — excellent for dry waste, offices, and light-duty applications. More economical per unit.</p><div class="type-specs"><span>Gauges: 6 – 22 mic</span><span>Best for: Dry office waste</span><span>Sizes: 12 gal – 60 gal</span></div></div>
     <div class="type-card rv rv-d2"><span class="type-icon">♻️</span><div class="type-name">Recycled Content Liners</div><p class="type-desc">Made from post-consumer recycled resin — same strength profile, reduced environmental footprint.</p><div class="type-specs"><span>PCR content: 10–80%</span><span>Best for: Green-certified facilities</span><span>Sizes: 30 gal – 55 gal</span></div></div>
-    <div class="type-card rv"><span class="type-icon">🏭</span><div class="type-name">Industrial Heavy-Duty</div><p class="type-desc">Extra-thick liners for construction debris, sharp objects, and industrial waste. Puncture and tear resistant.</p><div class="type-specs"><span>Gauges: 3.0 – 6.0 mil</span><span>Best for: Construction, manufacturing</span><span>Sizes: 33 gal – 95 gal</span></div></div>
+    <div class="type-card rv"><span class="type-icon">🏭</span><div class="type-name">Industrial Heavy-Duty</div><p class="type-desc">Extra-thick liners for construction debris, sharp objects, and industrial waste. Puncture and tear resistant.</p><div class="type-specs"><span>Gauges: 3.0 – 6.0 mil</span><span>Best for: Construction, manufacturing</span><span>Sizes: 33 gal – 60 gal</span></div></div>
     <div class="type-card rv rv-d1"><span class="type-icon">🏥</span><div class="type-name">Colored ID Liners</div><p class="type-desc">Color-coded waste stream management — red for biohazard, blue for recycling, clear for general, black for landfill.</p><div class="type-specs"><span>Colors: Black, Clear, Red, Blue, Green, White, Yellow</span><span>Best for: Healthcare, regulated industries</span></div></div>
     <div class="type-card rv rv-d2"><span class="type-icon">🔒</span><div class="type-name">Drawstring & Tie Flap</div><p class="type-desc">Easy closure for areas where quick bag changes are needed — restrooms, reception, high-turnover bins.</p><div class="type-specs"><span>Closure: Drawstring or star-seal</span><span>Best for: Restrooms, lobbies</span><span>Sizes: 13 gal – 33 gal</span></div></div>
   </div>
@@ -131,22 +154,8 @@ footer{background:var(--royal-deep);padding:36px 64px;display:flex;align-items:c
       <tr><td>33 gal</td><td>33" × 39"</td><td>1.5 mil LD</td><td>Low-density</td><td>Standard commercial</td><td>100/case</td></tr>
       <tr><td>40–45 gal</td><td>40" × 46"</td><td>16 mic HD</td><td>High-density</td><td>Dry office waste</td><td>250/case</td></tr>
       <tr><td>55–60 gal</td><td>38" × 58"</td><td>2.0 mil LD</td><td>Low-density</td><td>Large commercial bins</td><td>100/case</td></tr>
-      <tr><td>95 gal</td><td>61" × 68"</td><td>3.0–4.0 mil</td><td>Low-density heavy</td><td>Roll-off, outdoor dumpster</td><td>50/case</td></tr>
     </tbody>
   </table>
-  </div>
-</section>
-
-<section class="sec" style="background:var(--off);">
-  <div class="rv"><div class="sec-label">Our Brands</div><h2 class="sec-h2">Trusted liner brands we carry</h2></div>
-  <div class="brands-grid rv">
-    <div class="brand-card">Pitt Plastics</div>
-    <div class="brand-card">Toter</div>
-    <div class="brand-card">Empress</div>
-    <div class="brand-card">Inteplast / Bagcraft</div>
-    <div class="brand-card">Heritage Bag</div>
-    <div class="brand-card">Boardwalk</div>
-    <div class="brand-card">Carlisle</div>
   </div>
 </section>
 
@@ -159,12 +168,61 @@ footer{background:var(--royal-deep);padding:36px 64px;display:flex;align-items:c
   <div class="footer-logo"><span>Royal</span> Supply Inc.</div>
   <ul class="footer-links"><li><a href="royal_supply_products.html">Products</a></li><li><a href="royal_supply_suppliers.html">Suppliers</a></li><li><a href="royal_supply_contact.html">Contact</a></li></ul>
   <span class="footer-copy">© 2026 Royal Supply Inc. — Elk River, Minnesota</span>
+    <div class="footer-social">
+    <a href="https://www.facebook.com/RoyalSupplyMN/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.5.3v2.7h-1.4c-1.4 0-1.8.8-1.8 1.7V12h3.1l-.5 2.9h-2.6v7A10 10 0 0 0 22 12z"/></svg></a>
+    <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg></a>
+    <a href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 9.2l5 2.8-5 2.8V9.2z" fill="currentColor"/></svg></a>
+    <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="6.2" y="9.5" width="2.2" height="8" fill="currentColor"/><circle cx="7.3" cy="6.3" r="1.3" fill="currentColor"/><path d="M11 9.5h2.1v1.2c.5-.8 1.4-1.4 2.7-1.4 2 0 3.2 1.3 3.2 3.8v4.4h-2.2v-4c0-1.2-.5-2-1.6-2s-1.9.8-1.9 2.1v3.9H11V9.5z" fill="currentColor"/></svg></a>
+    <a href="#" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg></a>
+  </div>
 </footer>
 <script>
 const cur=document.getElementById('cur'),ring=document.getElementById('curRing');let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=(mx-5)+'px';cur.style.top=(my-5)+'px';});
 (function a(){rx+=(mx-rx-19)*.1;ry+=(my-ry-19)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a)})();
 document.querySelectorAll('.rv').forEach(el=>new IntersectionObserver(([e])=>{if(e.isIntersecting)el.classList.add('in')},{threshold:.1}).observe(el));
+</script>
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  if(!nav) return;
+  var navLinks = nav.querySelector('.nav-links');
+  if(!navLinks) return;
+  var cta = nav.querySelector('.nav-cta');
+  var menu = document.createElement('div');
+  menu.className = 'mobile-menu';
+  menu.id = 'mobile-menu';
+  var clone = navLinks.cloneNode(true);
+  clone.classList.remove('nav-links');
+  clone.classList.add('mobile-menu-links');
+  menu.appendChild(clone);
+  if(cta){ menu.appendChild(cta.cloneNode(true)); }
+  document.body.appendChild(menu);
+
+  var hamburger = document.createElement('button');
+  hamburger.className = 'hamburger';
+  hamburger.id = 'hamburger';
+  hamburger.type = 'button';
+  hamburger.setAttribute('aria-label','Menu');
+  hamburger.setAttribute('aria-expanded','false');
+  hamburger.innerHTML = '<span></span><span></span><span></span>';
+  nav.insertBefore(hamburger, cta || null);
+
+  function closeMenu(){
+    hamburger.classList.remove('open');
+    menu.classList.remove('open');
+    document.body.classList.remove('menu-open');
+    hamburger.setAttribute('aria-expanded','false');
+  }
+  hamburger.addEventListener('click', function(){
+    var isOpen = menu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    document.body.classList.toggle('menu-open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+  });
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  window.addEventListener('resize', function(){ if(window.innerWidth > 900) closeMenu(); });
+})();
 </script>
 </body>
 </html>
