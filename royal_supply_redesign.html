@@ -107,14 +107,14 @@ nav { position:fixed; top:0; left:0; right:0; z-index:200; display:flex; align-i
 .hero-right { position:relative; z-index:2; display:flex; align-items:center; justify-content:center; padding:140px 64px 80px; }
 
 /* Floating product cards */
-.float-cards { position:relative; width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
+.float-cards { position:relative; width:100%; height:100%; min-height:520px; }
 
 .fcard {
   position:absolute;
   background:rgba(255,255,255,.06);
   border:1px solid rgba(212,168,67,.2);
-  border-radius:16px;
-  padding:28px;
+  border-radius:12px;
+  padding:16px 12px;
   backdrop-filter:blur(10px);
   transition:transform .3s ease, border-color .3s, background .3s;
   animation:fcardFloat var(--dur, 6s) ease-in-out infinite var(--delay,0s);
@@ -122,24 +122,30 @@ nav { position:fixed; top:0; left:0; right:0; z-index:200; display:flex; align-i
   color:inherit;
   cursor:pointer;
   display:block;
+  text-align:center;
 }
 .fcard:hover { border-color:var(--gold); transform:scale(1.04); background:rgba(212,168,67,.1); }
 @keyframes fcardFloat {
   0%,100%{transform:translateY(0)}
-  50%{transform:translateY(var(--lift,-12px))}
+  50%{transform:translateY(var(--lift,-8px))}
 }
 
-.fcard-1 { top:4%; left:0; width:200px; --dur:7s; --delay:0s; --lift:-14px; }
-.fcard-2 { top:4%; right:0; width:180px; --dur:5.5s; --delay:1s; --lift:-10px; }
-.fcard-3 { bottom:4%; left:4%; width:190px; --dur:8s; --delay:2s; --lift:-16px; }
-.fcard-4 { bottom:4%; right:4%; width:170px; --dur:6.5s; --delay:0.5s; --lift:-12px; }
+.fcard-1 { top:0; left:0; width:150px; --dur:7s; --delay:0s; --lift:-8px; }
+.fcard-2 { top:8%; right:0; width:140px; --dur:5.5s; --delay:1s; --lift:-7px; }
+.fcard-3 { top:38%; left:20%; width:155px; --dur:8s; --delay:2s; --lift:-9px; }
+.fcard-4 { top:32%; right:4%; width:135px; --dur:6.5s; --delay:0.5s; --lift:-7px; }
+.fcard-5 { bottom:26%; left:0; width:145px; --dur:7.5s; --delay:1.5s; --lift:-8px; }
+.fcard-6 { bottom:18%; right:16%; width:150px; --dur:6s; --delay:2.5s; --lift:-6px; }
+.fcard-7 { bottom:0; left:32%; width:145px; --dur:8.5s; --delay:3s; --lift:-9px; }
 
-.fcard-icon { font-size:2rem; margin-bottom:12px; display:block; }
-.fcard-title { font-size:.82rem; font-weight:600; color:var(--white); margin-bottom:4px; }
-.fcard-sub { font-size:.7rem; color:rgba(255,255,255,.45); }
+.fcard-icon { font-size:1.3rem; margin-bottom:8px; display:block; }
+.fcard-title { font-size:.7rem; font-weight:600; color:var(--white); margin-bottom:3px; line-height:1.25; }
+.fcard-sub { font-size:.6rem; color:rgba(255,255,255,.45); line-height:1.2; }
 
 .hero-tagline { position:absolute; bottom:80px; left:64px; z-index:3; opacity:0; animation:fup .8s ease 3.4s forwards; font-size:1rem; font-weight:500; letter-spacing:.02em; color:var(--white); }
-.hero-tagline span { color:var(--gold); }
+.hero-tagline span { font-weight:700; }
+.hero-tagline span.gold { color:var(--gold); }
+.hero-tagline span.white { color:var(--white); }
 
 /* MARQUEE */
 .marquee { background:var(--gold); padding:14px 0; overflow:hidden; }
@@ -250,6 +256,10 @@ nav { position:fixed; top:0; left:0; right:0; z-index:200; display:flex; align-i
 .fg label { display:block; font-size:.62rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--royal); margin-bottom:8px; }
 .fg input, .fg select, .fg textarea { width:100%; padding:14px 16px; border:1px solid var(--border); border-radius:6px; font-family:'DM Sans',sans-serif; font-size:.88rem; color:var(--royal-deep); background:var(--white); outline:none; transition:border-color .3s; resize:none; }
 .fg input:focus,.fg select:focus,.fg textarea:focus { border-color:var(--royal); }
+.checkbox-group { padding:0; border:none; display:flex; flex-wrap:wrap; gap:10px; }
+.checkbox-label { display:flex; align-items:center; gap:8px; font-size:.82rem; cursor:pointer; padding:8px 14px; border:1.5px solid var(--border); border-radius:6px; transition:all .3s; }
+.checkbox-label:hover { border-color:var(--gold); background:rgba(212,168,67,.05); }
+.checkbox-label input { width:auto; padding:0; border:none; }
 .form-sub { display:inline-flex; align-items:center; gap:12px; padding:16px 36px; background:var(--royal); color:var(--white); font-size:.75rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; border:none; border-radius:6px; cursor:pointer; font-family:'DM Sans',sans-serif; margin-top:8px; transition:all .4s; }
 .form-sub:hover { background:var(--gold); color:var(--royal-deep); transform:translateY(-2px); }
 
@@ -344,7 +354,7 @@ footer{flex-wrap:wrap;}
       <span class="line"><span>Happy teams.</span></span>
       <span class="line"><span>Royal service.</span></span>
     </h1>
-    <p class="hero-sub">Over 6,000 janitorial, cleaning, and facility products delivered free to local businesses. Competitive pricing, no contracts, guaranteed quality.</p>
+    <p class="hero-sub">Over 6,000 janitorial, cleaning, and facility products delivered free with a minimum order to local businesses.</p>
     <div class="hero-actions">
       <a href="royal_supply_products.html" class="btn-gold"><span>Browse Products</span><span>→</span></a>
       <a href="royal_supply_contact.html" class="btn-outline">Request Delivery</a>
@@ -356,9 +366,12 @@ footer{flex-wrap:wrap;}
       <a href="royal_supply_handcare.html" class="fcard fcard-2"><span class="fcard-icon">🧴</span><div class="fcard-title">Hand Care</div><div class="fcard-sub">Soaps & sanitizers</div></a>
       <a href="royal_supply_liners.html" class="fcard fcard-3"><span class="fcard-icon">🗑️</span><div class="fcard-title">Liner Bags</div><div class="fcard-sub">All sizes & gauges</div></a>
       <a href="royal_supply_chemicals.html" class="fcard fcard-4"><span class="fcard-icon">🧪</span><div class="fcard-title">Cleaning Chemicals</div><div class="fcard-sub">EPA-approved formulas</div></a>
+      <a href="royal_supply_paper.html" class="fcard fcard-5"><span class="fcard-icon">🧻</span><div class="fcard-title">Paper Products</div><div class="fcard-sub">Towels, tissue & more</div></a>
+      <a href="royal_supply_foodservice.html" class="fcard fcard-6"><span class="fcard-icon">🍽️</span><div class="fcard-title">Foodservice Products</div><div class="fcard-sub">Packaging & disposables</div></a>
+      <a href="royal_supply_equipment_page.html" class="fcard fcard-7"><span class="fcard-icon">⚙️</span><div class="fcard-title">Cleaning Equipment</div><div class="fcard-sub">Machines & tools</div></a>
     </div>
   </div>
-  <p class="hero-tagline"><span>Competitive pricing.</span> No contracts. Guaranteed quality.</p>
+  <p class="hero-tagline"><span class="gold">Competitive pricing.</span> <span class="white">No contracts.</span> <span class="gold">Guaranteed quality.</span></p>
 </section>
 
 <!-- MARQUEE -->
@@ -440,7 +453,9 @@ footer{flex-wrap:wrap;}
   <div class="why-right">
     <div class="rv"><span class="sec-label">Clients We Serve</span><h2 class="sec-h2">Trusted by<br>Minnesota businesses</h2></div>
     <div class="clients-served rv rv-d1">
-      <div class="client-tag"><span class="ct-dot"></span>Schools, Educational Institutions, and Municipal Entities</div>
+      <div class="client-tag"><span class="ct-dot"></span>Schools and Educational Institutions</div>
+      <div class="client-tag"><span class="ct-dot"></span>Municipal Entities</div>
+      <div class="client-tag"><span class="ct-dot"></span>Churches/Places of Worship</div>
       <div class="client-tag"><span class="ct-dot"></span>Residential/Commercial Service Providers</div>
       <div class="client-tag"><span class="ct-dot"></span>Daycare Facilities</div>
       <div class="client-tag"><span class="ct-dot"></span>Mechanic Shops and Dealerships</div>
@@ -470,14 +485,33 @@ footer{flex-wrap:wrap;}
     <div class="rv"><span class="sec-label">Request a Quote</span><h2 class="sec-h2">Let's get your<br>building supplied</h2></div>
     <form onsubmit="handleForm(event)" class="rv rv-d1">
       <div class="form-row">
-        <div class="fg"><label>First Name</label><input type="text" placeholder="Jane" required></div>
-        <div class="fg"><label>Last Name</label><input type="text" placeholder="Smith" required></div>
+        <div class="fg"><label>First Name *</label><input type="text" placeholder="Jane" required></div>
+        <div class="fg"><label>Last Name *</label><input type="text" placeholder="Smith" required></div>
       </div>
-      <div class="fg"><label>Business Name</label><input type="text" placeholder="ABC Company" required></div>
-      <div class="fg"><label>Email</label><input type="email" placeholder="jane@company.com" required></div>
-      <div class="fg"><label>Products Needed</label><select><option value="">Select category</option><option>Janitorial Supplies</option><option>Paper Products</option><option>Cleaning Chemicals</option><option>Hand Care</option><option>Foodservice</option><option>Equipment</option><option>Multiple / Not sure</option></select></div>
-      <div class="fg"><label>Message</label><textarea rows="3" placeholder="Tell us about your facility and supply needs..."></textarea></div>
-      <button type="submit" class="form-sub">Request Free Quote →</button>
+      <div class="fg"><label>Business / Organization *</label><input type="text" placeholder="ABC Company or Organization Name" required></div>
+      <div class="form-row">
+        <div class="fg"><label>Email *</label><input type="email" placeholder="jane@company.com" required></div>
+        <div class="fg"><label>Phone</label><input type="tel" placeholder="612-555-0100"></div>
+      </div>
+      <div class="fg"><label>Products / Services Needed</label>
+        <div class="checkbox-group">
+          <label class="checkbox-label"><input type="checkbox"> Trash Liners</label>
+          <label class="checkbox-label"><input type="checkbox"> Paper Products</label>
+          <label class="checkbox-label"><input type="checkbox"> Janitorial Supplies</label>
+          <label class="checkbox-label"><input type="checkbox"> Hand & Skin Care</label>
+          <label class="checkbox-label"><input type="checkbox"> Cleaning Chemicals</label>
+          <label class="checkbox-label"><input type="checkbox"> Cleaning Equipment</label>
+          <label class="checkbox-label"><input type="checkbox"> Equipment Repair</label>
+          <label class="checkbox-label"><input type="checkbox"> Foodservice</label>
+          <label class="checkbox-label"><input type="checkbox"> Matting and Floor Care</label>
+          <label class="checkbox-label"><input type="checkbox"> SDS Sheets</label>
+        </div>
+      </div>
+      <div class="fg"><label>Facility Type</label>
+        <select><option value="">Select type</option><option>Healthcare / Hospital</option><option>School / University</option><option>Church / House of Worship</option><option>Commercial Office</option><option>Restaurant / Foodservice</option><option>Cleaning Service Company</option><option>Other</option></select>
+      </div>
+      <div class="fg"><label>Tell us about your needs</label><textarea rows="4" placeholder="Approximate order frequency, facility size, specific products or brands you currently use..."></textarea></div>
+      <button type="submit" class="form-sub">Submit Quote Request →</button>
     </form>
   </div>
 </section>
@@ -494,9 +528,7 @@ footer{flex-wrap:wrap;}
   <span class="footer-copy">© 2026 Royal Supply Inc. — Elk River, Minnesota</span>
     <div class="footer-social">
     <a href="https://www.facebook.com/RoyalSupplyMN/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.5.3v2.7h-1.4c-1.4 0-1.8.8-1.8 1.7V12h3.1l-.5 2.9h-2.6v7A10 10 0 0 0 22 12z"/></svg></a>
-    <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg></a>
-    <a href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 9.2l5 2.8-5 2.8V9.2z" fill="currentColor"/></svg></a>
-    <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="6.2" y="9.5" width="2.2" height="8" fill="currentColor"/><circle cx="7.3" cy="6.3" r="1.3" fill="currentColor"/><path d="M11 9.5h2.1v1.2c.5-.8 1.4-1.4 2.7-1.4 2 0 3.2 1.3 3.2 3.8v4.4h-2.2v-4c0-1.2-.5-2-1.6-2s-1.9.8-1.9 2.1v3.9H11V9.5z" fill="currentColor"/></svg></a>
+    <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg></a> <a href="https://www.google.com/search?q=Royal+Supply+Elk+River+MN+reviews#lrd=reviews" target="_blank" rel="noopener" aria-label="Leave a Google Review"><svg viewBox="0 0 24 24"><path d="M21.6 12.23c0-.75-.07-1.47-.19-2.16H12v4.08h5.4a4.62 4.62 0 0 1-2 3.03v2.5h3.24c1.9-1.75 3-4.33 3-7.45z" fill="currentColor"/><path d="M12 22c2.7 0 4.97-.9 6.63-2.42l-3.24-2.5c-.9.6-2.05.96-3.39.96-2.6 0-4.8-1.76-5.6-4.12H3.05v2.58A10 10 0 0 0 12 22z" fill="currentColor"/><path d="M6.4 13.92a5.99 5.99 0 0 1 0-3.84V7.5H3.05a10 10 0 0 0 0 9l3.35-2.58z" fill="currentColor"/><path d="M12 5.98c1.47 0 2.79.5 3.83 1.5l2.87-2.87A9.96 9.96 0 0 0 12 2a10 10 0 0 0-8.95 5.5l3.35 2.58c.8-2.36 3-4.1 5.6-4.1z" fill="currentColor"/></svg></a>
     <a href="#" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg></a>
   </div>
 </footer>
